@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yyw.community.mycommunity.mapper.PostExtMapper">
+    <resultMap id="BaseResultMap" type="com.yyw.community.mycommunity.entity.Post">
+        <id column="id" jdbcType="INTEGER" property="id" />
+        <result column="title" jdbcType="VARCHAR" property="title" />
+        <result column="tag" jdbcType="VARCHAR" property="tag" />
+        <result column="publisher" jdbcType="BIGINT" property="publisher" />
+        <result column="comment_count" jdbcType="BIGINT" property="commentCount" />
+        <result column="view_count" jdbcType="BIGINT" property="viewCount" />
+        <result column="likes_count" jdbcType="BIGINT" property="likesCount" />
+        <result column="gmt_create" jdbcType="BIGINT" property="gmtCreate" />
+        <result column="gmt_modified" jdbcType="BIGINT" property="gmtModified" />
+    </resultMap>
+
+    <update id="increaseViewCount" parameterType="com.yyw.community.mycommunity.entity.Post">
+        update post set view_count = view_count + #{viewCount, jdbcType=BIGINT} where id = #{id}
+    </update>
+
+    <update id="increaseCommentCount" parameterType="com.yyw.community.mycommunity.entity.Post">
+        update post set comment_count = comment_count + #{commentCount, jdbcType=BIGINT} where id = #{id}
+    </update>
+
+    <select id="selectRelated" parameterType="com.yyw.community.mycommunity.entity.Post" resultMap="BaseResultMap">
+        select * from post where id != #{id} and tag regexp #{tag}
+    </select>
+
+    <select id="countBySearch" parameterType="com.yyw.community.mycommunity.dto.PostQueryDTO" resultType="java.lang.Integer">
+        select count(*) from post
+        <where>
+            <if test="search != null and search != '' ">
+                and title regexp #{search}
+            </if>
+        </where>
+
+    </select>
+    <select id="selectBySearch" parameterType="com.yyw.community.mycommunity.dto.PostQueryDTO" resultMap="BaseResultMap">
+        select * from post
+        <where>
+            <if test="search != null and search != ''">
+                and title regexp #{search}
+            </if>
+        </where>
+        order by gmt_create desc limit #{page}, #{size}
+    </select>
+
+</mapper>

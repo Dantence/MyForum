@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dantence Forum</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/css/bootstrap-theme.css"/>
+    <link rel="stylesheet" href="/css/forum.css"/>
+    <link rel="stylesheet" href="/css/editormd.min.css">
+    <link rel="stylesheet" href="/css/editormd.preview.css">
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <script src="/js/bootstrap.js" type="application/javascript"></script>
+    <script src="/js/community.js" type="application/javascript"></script>
+    <script src="/js/editormd.min.js" type="application/javascript"></script>
+</head>
+<body>
+<div th:insert="~{navigation :: nav}"></div>
+
+<div class="container-fluid main">
+    <div class="row">
+        <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
+
+            <h2><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>发起</h2>
+            <form action="/publish" method="post">
+                <input type="hidden" name="id" th:value="${id}">
+                <div class="form-group">
+                    <label for="title">标题</label>
+                    <input id="title" name="title" type="text" th:value="${title}" class="form-control"
+                           autocomplete="off" placeholder="新贴标题">
+                </div>
+                <div class="form-group" id="post-editor">
+                    <label for="content">内容</label>
+                    <textarea id="content" name="content" th:text="${content}" style="display:none;" class="form-control" cols="30"
+                              rows="10"></textarea>
+                </div>
+                <script type="text/javascript">
+                    $(function(){
+                        var editor = editormd("post-editor",{
+                            width: "100%",
+                            height: 350,
+                            path: "/js/lib/",
+                            delay: 0,
+                            watch: false,
+                            placeholder: "请输入内容，支持markdown语法与图片上传",
+                            imageUpload: true,
+                            imageFormats: ["jpg", "jpeg", "gif", "png", "bmp", "webp"],
+                            imageUploadURL: "/file/upload"
+                        });
+                    });
+                </script>
+                <div class="form-group">
+                    <label for="tag">标签</label>
+                    <input id="tag" name="tag" type="text" th:value="${tag}" class="form-control" autocomplete="off"
+                           placeholder="输入标签，以英文逗号分隔" onclick="showSelectTag()">
+
+
+                    <div id="select-tag" class="publish-tag-tab">
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li role="presentation" th:each="Tag, state : ${tags}" th:class="${state.first ? 'active':''}">
+                                <a th:href="${'#' + Tag.categoryName}" aria-controls="home" role="tab" data-toggle="tab"
+                                   th:text="${Tag.categoryName}"></a>
+                            </li>
+                        </ul>
+
+                        <div class="tab-content">
+                            <div role="tabpanel" th:each="Tag, state: ${tags}"
+                                 th:id="${Tag.categoryName}"
+                                 th:class="${state.first ? 'active tab-pane':'tab-pane'}">
+                                <div class="publish-tag-area">
+                                    <span class="label label-info publish-tag" th:each="subTag : ${Tag.tags}">
+                                        <span class="glyphicon glyphicon-tags"></span>
+                                        <span th:text="${subTag}" onclick="selectTag(this)"></span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-success btn-publish">
+                    发布
+                </button>
+
+            </form>
+        </div>
+        <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
+            <h3>Tips</h3>
+            标题：不超过25个字 <br>
+            内容：确保清晰直观 <br>
+            标签：输入一个或多个合适的标签，用英文逗号分隔，每个标签不超过10个字 <br>
+            有问题请联系站长(QQ:1289798656) <br>
+        </div>
+    </div>
+</div>
+<div th:insert="~{footer :: foot}"></div>
+</body>
+<script type="text/javascript" th:inline="javascript">
+    var error = /*[[${error}]]*/ null;
+    if (error != null) {
+        alert(error)
+    }
+</script>
+</html>

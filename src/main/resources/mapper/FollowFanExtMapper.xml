@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yyw.community.mycommunity.mapper.FollowFanExtMapper">
+    <resultMap id="BaseResultMap" type="com.yyw.community.mycommunity.entity.FollowFan">
+        <id column="id" jdbcType="BIGINT" property="id" />
+        <result column="follow_id" jdbcType="BIGINT" property="followId" />
+        <result column="fan_id" jdbcType="BIGINT" property="fanId" />
+    </resultMap>
+    
+    <resultMap id="FollowFanResultMap" type="com.yyw.community.mycommunity.dto.FollowFanDTO">
+        <id column="id" jdbcType="BIGINT" property="id" />
+        <result column="name" jdbcType="VARCHAR" property="name" />
+        <result column="avatar_url" jdbcType="VARCHAR" property="avatarUrl" />
+    </resultMap>
+
+    <select id="selectFans" parameterType="java.lang.Long" resultMap="FollowFanResultMap">
+        select user.id, user.name , user.avatar_url from follow_fan
+        LEFT JOIN user on user.id = follow_fan.follow_id where follow_fan.fan_id = #{id};
+    </select>
+
+    <select id="selectFollows" parameterType="java.lang.Long" resultMap="FollowFanResultMap">
+        select user.id, user.name , user.avatar_url from follow_fan
+        LEFT JOIN user on user.id = follow_fan.fan_id where follow_fan.follow_id = #{id};
+    </select>
+
+</mapper>

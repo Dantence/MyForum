@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yyw.community.mycommunity.mapper.CommentExtMapper">
+    <resultMap id="BaseResultMap" type="com.yyw.community.mycommunity.entity.Comment">
+        <id column="id" jdbcType="BIGINT" property="id" />
+        <result column="parent_id" jdbcType="BIGINT" property="parentId" />
+        <result column="content" jdbcType="VARCHAR" property="content" />
+        <result column="type" jdbcType="INTEGER" property="type" />
+        <result column="commentator" jdbcType="BIGINT" property="commentator" />
+        <result column="likes_count" jdbcType="BIGINT" property="likesCount" />
+        <result column="comment_count" jdbcType="BIGINT" property="commentCount" />
+        <result column="gmt_create" jdbcType="BIGINT" property="gmtCreate" />
+        <result column="gmt_modified" jdbcType="BIGINT" property="gmtModified" />
+    </resultMap>
+
+    <update id="increaseCommentCount" parameterType="com.yyw.community.mycommunity.entity.Comment">
+        update comment set comment_count = comment_count + #{commentCount, jdbcType=BIGINT} where id = #{id}
+    </update>
+
+</mapper>

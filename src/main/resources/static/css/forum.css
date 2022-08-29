@@ -1,0 +1,161 @@
+.main {
+    background-color: white;
+    margin: 30px;
+}
+
+body {
+    background-color: #efefef;
+}
+
+.btn-publish {
+    float: right;
+    margin-bottom: 15px;
+}
+
+.publish-tag-area {
+    margin-top: 10px;
+}
+
+.publish-tag {
+    margin-right: 8px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.publish-tag-tab {
+    display: none;
+    margin-top: 10px;
+    padding-top: 10px;
+}
+
+.publish-tag-tab .label-info {
+    white-space: normal;
+    margin: 5px 5px;
+    display: inline-block;
+}
+
+.img-size {
+    width: 40px;
+    height: 40px;
+}
+
+.post-desc {
+    font-size: 12px;
+    font-weight: normal;
+    color: #999;
+}
+
+.post-tag {
+    margin-right: 8px;
+}
+
+.mine .section {
+    margin-top: 18px;
+}
+
+.community-menu {
+    color: #999;
+    margin-bottom: 25px;
+}
+
+.error-page {
+    margin: 50px;
+}
+
+.media-body {
+    padding-top: 10px;
+}
+
+.comment-body {
+    padding-top: 2px;
+}
+
+.comment {
+    margin: 15px 0;
+}
+
+.comment-list {
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.sub-comments {
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #eee;
+    padding-top: 15px;
+}
+
+.sub-comments .btn {
+    margin: 12px;
+}
+
+.sub-comments .text {
+    margin-top: 15px;
+}
+
+.btn-comment {
+    float: right;
+    margin-bottom: 10px;
+}
+
+.comment-spline {
+    margin-top: 0;
+}
+
+.comment-num {
+    margin-left: 10px;
+}
+
+.comment-menu {
+    margin-top: 8px;
+    color: #999;
+}
+
+.comment-menu .comment-icon {
+    margin-right: 6px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.comment-menu .comment-count-icon {
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.comment-menu .active {
+    color: #499ef3;
+}
+
+.comment-menu .comment-count-icon:hover {
+    color: #499ef3;
+}
+
+.comment-menu .comment-icon:hover {
+    color: #499ef3;
+}
+
+.post-title {
+    margin-top: 25px;
+}
+
+.post-related {
+    line-height: 30px;
+    font-size: 16px;
+    padding-left: 2px;
+    list-style: none;
+    text-decoration: none;
+}
+
+.post-wechat {
+    width: 60%;
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
+    color: #666;
+}
+

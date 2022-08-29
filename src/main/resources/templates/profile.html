@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/css/bootstrap-theme.css"/>
+    <link rel="stylesheet" href="/css/profile.css"/>
+    <link rel="stylesheet" href="/css/forum.css"/>
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <script src="/js/bootstrap.js" type="application/javascript"></script>
+    <script src="/js/community.js" type="application/javascript"></script>
+</head>
+<body>
+<div th:insert="~{navigation :: nav}"></div>
+<div class="card">
+    <div class="imgBx">
+        <img th:src="${profile.user.avatarUrl}" alt="">
+    </div>
+    <div class="content">
+        <div class="details">
+            <h2>
+                <span th:text="${profile.user.name}"></span>
+                <br>
+                <span th:text="${profile.user.bio}"></span></h2>
+            <div class="data">
+                <h3>
+                    <span th:text="${profile.postCount}"></span><br>
+                    <span>发帖</span>
+                </h3>
+                <h3>
+                    <span th:text="${profile.followCount}"></span><br>
+                    <a style="text-decoration: none;" th:href="@{'/showfollows/' + ${profile.user.id}}">关注</a></h3>
+                <h3>
+                    <span id="fanCount" th:text="${profile.fanCount}"></span><br>
+                    <a style="text-decoration: none;" th:href="@{'/showfans/' + ${profile.user.id}}">被关注</a>
+                </h3>
+            </div>
+            <div class="actionBtn" th:if="${profile.user.id != session.user.id}">
+                <button th:class="${isFollowed == 0 ? 'follow-btn' : 'msg-btn'}" id="follow-btn" th:data-follow_id="${session.user.id}" th:data-fan_id="${profile.user.id}"
+                        onclick="doFollow(this)" th:text="${isFollowed == 0 ? '+关注' : '取消关注'}">
+                </button>
+                <a th:href="@{'/message/' + ${profile.user.id}}">
+                    <button class="msg-btn" id="msg-btn">私信</button>
+                </a>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+<div th:insert="~{footer :: foot}"></div>
+</body>
+
+</html>

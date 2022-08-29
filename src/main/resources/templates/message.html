@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dantence Forum</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/css/bootstrap-theme.css"/>
+    <link rel="stylesheet" href="/css/forum.css"/>
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <script src="/js/bootstrap.js" type="application/javascript"></script>
+    <script src="/js/community.js" type="application/javascript"></script>
+
+</head>
+
+<body>
+<div th:insert="~{navigation :: nav}"></div>
+
+<div class="container-fluid main">
+    <div class="row">
+        <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
+            <h2>
+                <span class="glyphicon glyphicon-comment" aria-hidden="true"></span>
+                <span th:text="${'与' + receiverName + '的私信'}"></span>
+            </h2><hr>
+
+            <div class="media" th:each="message : ${messages}">
+                <div class="media-left">
+                    <a href="#">
+                        <img class="media-object img-size" th:src="${message.user.avatarUrl}" alt="...">
+                    </a>
+                </div>
+                <div class="media-body">
+                    <h4 class="media-heading">
+                        <span th:text="${message.content}"></span>
+                    </h4>
+                    <span class="post-desc">
+                        <span th:text="${#dates.format(message.gmtCreate, 'yyyy-MM-dd HH:mm')}"></span>
+                    </span>
+                </div>
+            </div>
+
+            <form action="/sendMessage" method="post">
+                <input type="hidden" name="receiver" th:value="${receiver}">
+                <div class="form-group">
+                    <label for="title">输入内容</label>
+                    <input id="title" name="content" type="text" class="form-control"
+                           autocomplete="off" placeholder="愉快地交流吧~">
+                </div>
+                <button type="submit" class="btn btn-success btn-publish">
+                    发送
+                </button>
+            </form>
+
+
+        </div>
+
+    </div>
+</div>
+
+<div th:insert="~{footer :: foot}"></div>
+</body>
+</html>
