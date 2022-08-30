@@ -1,2 +1,577 @@
-2022-08-25 12:07:02.666  WARN 22428 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=23h26m58s604ms837µs400ns).
-2022-08-25 17:21:12.917  WARN 22428 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2h58m488ms492µs800ns).
+2022-08-30 13:31:50.659  INFO 45316 --- [restartedMain] c.y.c.m.MyCommunityApplication           : Starting MyCommunityApplication on LAPTOP-N7A9SVGH with PID 45316 (D:\myfile\Java\MyCommunity\target\classes started by yyw in D:\myfile\Java\MyCommunity)
+2022-08-30 13:31:50.681  INFO 45316 --- [restartedMain] c.y.c.m.MyCommunityApplication           : No active profile set, falling back to default profiles: default
+2022-08-30 13:31:50.815  INFO 45316 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-08-30 13:31:50.816  INFO 45316 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-08-30 13:31:53.576  INFO 45316 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-08-30 13:31:53.600  INFO 45316 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-08-30 13:31:53.601  INFO 45316 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.41]
+2022-08-30 13:31:53.914  INFO 45316 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-08-30 13:31:53.915  INFO 45316 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3097 ms
+2022-08-30 13:31:55.376  INFO 45316 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2022-08-30 13:31:55.453  INFO 45316 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2022-08-30 13:31:55.757  INFO 45316 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-08-30 13:31:55.827  INFO 45316 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-08-30 13:31:55.840  INFO 45316 --- [restartedMain] c.y.c.m.MyCommunityApplication           : Started MyCommunityApplication in 5.806 seconds (JVM running for 7.829)
+2022-08-30 13:31:58.341  INFO 45316 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-08-30 13:31:58.342  INFO 45316 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-08-30 13:31:58.361  INFO 45316 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 19 ms
+2022-08-30 13:31:58.498  INFO 45316 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-08-30 13:31:59.644  INFO 45316 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-08-30 13:31:59.662 DEBUG 45316 --- [http-nio-8080-exec-1] c.y.c.m.m.PostExtMapper.countBySearch    : ==>  Preparing: select count(*) from post
+2022-08-30 13:31:59.705 DEBUG 45316 --- [http-nio-8080-exec-1] c.y.c.m.m.PostExtMapper.countBySearch    : ==> Parameters: 
+2022-08-30 13:31:59.751 DEBUG 45316 --- [http-nio-8080-exec-1] c.y.c.m.m.PostExtMapper.countBySearch    : <==      Total: 1
+2022-08-30 13:31:59.762 DEBUG 45316 --- [http-nio-8080-exec-1] c.y.c.m.m.PostExtMapper.selectBySearch   : ==>  Preparing: select * from post order by gmt_create desc limit ?, ?
+2022-08-30 13:31:59.764 DEBUG 45316 --- [http-nio-8080-exec-1] c.y.c.m.m.PostExtMapper.selectBySearch   : ==> Parameters: 0(Integer), 5(Integer)
+2022-08-30 13:31:59.773 DEBUG 45316 --- [http-nio-8080-exec-1] c.y.c.m.m.PostExtMapper.selectBySearch   : <==      Total: 5
+2022-08-30 13:31:59.775 DEBUG 45316 --- [http-nio-8080-exec-1] c.y.c.m.m.UserMapper.selectByPrimaryKey  : ==>  Preparing: select id, account_id, name, bio, token, avatar_url, gmt_create, gmt_modified, is_valid from user where id = ?
+2022-08-30 13:31:59.776 DEBUG 45316 --- [http-nio-8080-exec-1] c.y.c.m.m.UserMapper.selectByPrimaryKey  : ==> Parameters: 4(Long)
+2022-08-30 13:31:59.792 DEBUG 45316 --- [http-nio-8080-exec-1] c.y.c.m.m.UserMapper.selectByPrimaryKey  : <==      Total: 1
+2022-08-30 13:31:59.820 DEBUG 45316 --- [http-nio-8080-exec-1] c.y.c.m.m.UserMapper.selectByPrimaryKey  : ==>  Preparing: select id, account_id, name, bio, token, avatar_url, gmt_create, gmt_modified, is_valid from user where id = ?
+2022-08-30 13:31:59.822 DEBUG 45316 --- [http-nio-8080-exec-1] c.y.c.m.m.UserMapper.selectByPrimaryKey  : ==> Parameters: 5(Long)
+2022-08-30 13:31:59.824 DEBUG 45316 --- [http-nio-8080-exec-1] c.y.c.m.m.UserMapper.selectByPrimaryKey  : <==      Total: 1
+2022-08-30 13:31:59.826 DEBUG 45316 --- [http-nio-8080-exec-1] c.y.c.m.m.UserMapper.selectByPrimaryKey  : ==>  Preparing: select id, account_id, name, bio, token, avatar_url, gmt_create, gmt_modified, is_valid from user where id = ?
+2022-08-30 13:31:59.827 DEBUG 45316 --- [http-nio-8080-exec-1] c.y.c.m.m.UserMapper.selectByPrimaryKey  : ==> Parameters: 5(Long)
+2022-08-30 13:31:59.829 DEBUG 45316 --- [http-nio-8080-exec-1] c.y.c.m.m.UserMapper.selectByPrimaryKey  : <==      Total: 1
+2022-08-30 13:31:59.831 DEBUG 45316 --- [http-nio-8080-exec-1] c.y.c.m.m.UserMapper.selectByPrimaryKey  : ==>  Preparing: select id, account_id, name, bio, token, avatar_url, gmt_create, gmt_modified, is_valid from user where id = ?
+2022-08-30 13:31:59.833 DEBUG 45316 --- [http-nio-8080-exec-1] c.y.c.m.m.UserMapper.selectByPrimaryKey  : ==> Parameters: 4(Long)
+2022-08-30 13:31:59.838 DEBUG 45316 --- [http-nio-8080-exec-1] c.y.c.m.m.UserMapper.selectByPrimaryKey  : <==      Total: 1
+2022-08-30 13:31:59.839 DEBUG 45316 --- [http-nio-8080-exec-1] c.y.c.m.m.UserMapper.selectByPrimaryKey  : ==>  Preparing: select id, account_id, name, bio, token, avatar_url, gmt_create, gmt_modified, is_valid from user where id = ?
+2022-08-30 13:31:59.841 DEBUG 45316 --- [http-nio-8080-exec-1] c.y.c.m.m.UserMapper.selectByPrimaryKey  : ==> Parameters: 4(Long)
+2022-08-30 13:31:59.844 DEBUG 45316 --- [http-nio-8080-exec-1] c.y.c.m.m.UserMapper.selectByPrimaryKey  : <==      Total: 1
+2022-08-30 13:33:06.293  INFO 42928 --- [restartedMain] c.y.c.m.MyCommunityApplication           : Starting MyCommunityApplication on LAPTOP-N7A9SVGH with PID 42928 (D:\myfile\Java\MyCommunity\target\classes started by yyw in D:\myfile\Java\MyCommunity)
+2022-08-30 13:33:06.301  INFO 42928 --- [restartedMain] c.y.c.m.MyCommunityApplication           : No active profile set, falling back to default profiles: default
+2022-08-30 13:33:06.444  INFO 42928 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-08-30 13:33:06.445  INFO 42928 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-08-30 13:33:08.842  INFO 42928 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-08-30 13:33:08.876  INFO 42928 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-08-30 13:33:08.878  INFO 42928 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.41]
+2022-08-30 13:33:09.167  INFO 42928 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-08-30 13:33:09.167  INFO 42928 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2720 ms
+2022-08-30 13:33:10.534  INFO 42928 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2022-08-30 13:33:10.647  INFO 42928 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2022-08-30 13:33:11.161  INFO 42928 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-08-30 13:33:11.332  INFO 42928 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-08-30 13:33:11.360  INFO 42928 --- [restartedMain] c.y.c.m.MyCommunityApplication           : Started MyCommunityApplication in 5.796 seconds (JVM running for 7.748)
+2022-08-30 13:33:13.605  INFO 42928 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-08-30 13:33:13.606  INFO 42928 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-08-30 13:33:13.618  INFO 42928 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 12 ms
+2022-08-30 13:33:13.752  INFO 42928 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-08-30 13:33:14.873  INFO 42928 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-08-30 13:33:14.886 DEBUG 42928 --- [http-nio-8080-exec-1] c.y.c.m.m.PostExtMapper.countBySearch    : ==>  Preparing: select count(*) from post
+2022-08-30 13:33:14.915 DEBUG 42928 --- [http-nio-8080-exec-1] c.y.c.m.m.PostExtMapper.countBySearch    : ==> Parameters: 
+2022-08-30 13:33:14.946 DEBUG 42928 --- [http-nio-8080-exec-1] c.y.c.m.m.PostExtMapper.countBySearch    : <==      Total: 1
+2022-08-30 13:33:14.955 DEBUG 42928 --- [http-nio-8080-exec-1] c.y.c.m.m.PostExtMapper.selectBySearch   : ==>  Preparing: select * from post order by gmt_create desc limit ?, ?
+2022-08-30 13:33:14.956 DEBUG 42928 --- [http-nio-8080-exec-1] c.y.c.m.m.PostExtMapper.selectBySearch   : ==> Parameters: 0(Integer), 5(Integer)
+2022-08-30 13:33:14.964 DEBUG 42928 --- [http-nio-8080-exec-1] c.y.c.m.m.PostExtMapper.selectBySearch   : <==      Total: 5
+2022-08-30 13:33:14.966 DEBUG 42928 --- [http-nio-8080-exec-1] c.y.c.m.m.UserMapper.selectByPrimaryKey  : ==>  Preparing: select id, account_id, name, bio, token, avatar_url, gmt_create, gmt_modified, is_valid from user where id = ?
+2022-08-30 13:33:14.967 DEBUG 42928 --- [http-nio-8080-exec-1] c.y.c.m.m.UserMapper.selectByPrimaryKey  : ==> Parameters: 4(Long)
+2022-08-30 13:33:14.974 DEBUG 42928 --- [http-nio-8080-exec-1] c.y.c.m.m.UserMapper.selectByPrimaryKey  : <==      Total: 1
+2022-08-30 13:33:14.998 DEBUG 42928 --- [http-nio-8080-exec-1] c.y.c.m.m.UserMapper.selectByPrimaryKey  : ==>  Preparing: select id, account_id, name, bio, token, avatar_url, gmt_create, gmt_modified, is_valid from user where id = ?
+2022-08-30 13:33:14.999 DEBUG 42928 --- [http-nio-8080-exec-1] c.y.c.m.m.UserMapper.selectByPrimaryKey  : ==> Parameters: 5(Long)
+2022-08-30 13:33:15.002 DEBUG 42928 --- [http-nio-8080-exec-1] c.y.c.m.m.UserMapper.selectByPrimaryKey  : <==      Total: 1
+2022-08-30 13:33:15.004 DEBUG 42928 --- [http-nio-8080-exec-1] c.y.c.m.m.UserMapper.selectByPrimaryKey  : ==>  Preparing: select id, account_id, name, bio, token, avatar_url, gmt_create, gmt_modified, is_valid from user where id = ?
+2022-08-30 13:33:15.005 DEBUG 42928 --- [http-nio-8080-exec-1] c.y.c.m.m.UserMapper.selectByPrimaryKey  : ==> Parameters: 5(Long)
+2022-08-30 13:33:15.008 DEBUG 42928 --- [http-nio-8080-exec-1] c.y.c.m.m.UserMapper.selectByPrimaryKey  : <==      Total: 1
+2022-08-30 13:33:15.009 DEBUG 42928 --- [http-nio-8080-exec-1] c.y.c.m.m.UserMapper.selectByPrimaryKey  : ==>  Preparing: select id, account_id, name, bio, token, avatar_url, gmt_create, gmt_modified, is_valid from user where id = ?
+2022-08-30 13:33:15.010 DEBUG 42928 --- [http-nio-8080-exec-1] c.y.c.m.m.UserMapper.selectByPrimaryKey  : ==> Parameters: 4(Long)
+2022-08-30 13:33:15.014 DEBUG 42928 --- [http-nio-8080-exec-1] c.y.c.m.m.UserMapper.selectByPrimaryKey  : <==      Total: 1
+2022-08-30 13:33:15.015 DEBUG 42928 --- [http-nio-8080-exec-1] c.y.c.m.m.UserMapper.selectByPrimaryKey  : ==>  Preparing: select id, account_id, name, bio, token, avatar_url, gmt_create, gmt_modified, is_valid from user where id = ?
+2022-08-30 13:33:15.016 DEBUG 42928 --- [http-nio-8080-exec-1] c.y.c.m.m.UserMapper.selectByPrimaryKey  : ==> Parameters: 4(Long)
+2022-08-30 13:33:15.019 DEBUG 42928 --- [http-nio-8080-exec-1] c.y.c.m.m.UserMapper.selectByPrimaryKey  : <==      Total: 1
+2022-08-30 13:33:29.022 ERROR 42928 --- [http-nio-8080-exec-8] c.y.c.m.controller.AuthorizeController   : callbacl get github user error, GitHubUser(name=null, id=null, bio=null, avatarUrl=null)
+2022-08-30 13:33:29.051 DEBUG 42928 --- [http-nio-8080-exec-9] c.y.c.m.m.PostExtMapper.countBySearch    : ==>  Preparing: select count(*) from post
+2022-08-30 13:33:29.052 DEBUG 42928 --- [http-nio-8080-exec-9] c.y.c.m.m.PostExtMapper.countBySearch    : ==> Parameters: 
+2022-08-30 13:33:29.054 DEBUG 42928 --- [http-nio-8080-exec-9] c.y.c.m.m.PostExtMapper.countBySearch    : <==      Total: 1
+2022-08-30 13:33:29.055 DEBUG 42928 --- [http-nio-8080-exec-9] c.y.c.m.m.PostExtMapper.selectBySearch   : ==>  Preparing: select * from post order by gmt_create desc limit ?, ?
+2022-08-30 13:33:29.056 DEBUG 42928 --- [http-nio-8080-exec-9] c.y.c.m.m.PostExtMapper.selectBySearch   : ==> Parameters: 0(Integer), 5(Integer)
+2022-08-30 13:33:29.061 DEBUG 42928 --- [http-nio-8080-exec-9] c.y.c.m.m.PostExtMapper.selectBySearch   : <==      Total: 5
+2022-08-30 13:33:29.062 DEBUG 42928 --- [http-nio-8080-exec-9] c.y.c.m.m.UserMapper.selectByPrimaryKey  : ==>  Preparing: select id, account_id, name, bio, token, avatar_url, gmt_create, gmt_modified, is_valid from user where id = ?
+2022-08-30 13:33:29.063 DEBUG 42928 --- [http-nio-8080-exec-9] c.y.c.m.m.UserMapper.selectByPrimaryKey  : ==> Parameters: 4(Long)
+2022-08-30 13:33:29.065 DEBUG 42928 --- [http-nio-8080-exec-9] c.y.c.m.m.UserMapper.selectByPrimaryKey  : <==      Total: 1
+2022-08-30 13:33:29.066 DEBUG 42928 --- [http-nio-8080-exec-9] c.y.c.m.m.UserMapper.selectByPrimaryKey  : ==>  Preparing: select id, account_id, name, bio, token, avatar_url, gmt_create, gmt_modified, is_valid from user where id = ?
+2022-08-30 13:33:29.068 DEBUG 42928 --- [http-nio-8080-exec-9] c.y.c.m.m.UserMapper.selectByPrimaryKey  : ==> Parameters: 5(Long)
+2022-08-30 13:33:29.070 DEBUG 42928 --- [http-nio-8080-exec-9] c.y.c.m.m.UserMapper.selectByPrimaryKey  : <==      Total: 1
+2022-08-30 13:33:29.072 DEBUG 42928 --- [http-nio-8080-exec-9] c.y.c.m.m.UserMapper.selectByPrimaryKey  : ==>  Preparing: select id, account_id, name, bio, token, avatar_url, gmt_create, gmt_modified, is_valid from user where id = ?
+2022-08-30 13:33:29.073 DEBUG 42928 --- [http-nio-8080-exec-9] c.y.c.m.m.UserMapper.selectByPrimaryKey  : ==> Parameters: 5(Long)
+2022-08-30 13:33:29.075 DEBUG 42928 --- [http-nio-8080-exec-9] c.y.c.m.m.UserMapper.selectByPrimaryKey  : <==      Total: 1
+2022-08-30 13:33:29.076 DEBUG 42928 --- [http-nio-8080-exec-9] c.y.c.m.m.UserMapper.selectByPrimaryKey  : ==>  Preparing: select id, account_id, name, bio, token, avatar_url, gmt_create, gmt_modified, is_valid from user where id = ?
+2022-08-30 13:33:29.076 DEBUG 42928 --- [http-nio-8080-exec-9] c.y.c.m.m.UserMapper.selectByPrimaryKey  : ==> Parameters: 4(Long)
+2022-08-30 13:33:29.078 DEBUG 42928 --- [http-nio-8080-exec-9] c.y.c.m.m.UserMapper.selectByPrimaryKey  : <==      Total: 1
+2022-08-30 13:33:29.079 DEBUG 42928 --- [http-nio-8080-exec-9] c.y.c.m.m.UserMapper.selectByPrimaryKey  : ==>  Preparing: select id, account_id, name, bio, token, avatar_url, gmt_create, gmt_modified, is_valid from user where id = ?
+2022-08-30 13:33:29.080 DEBUG 42928 --- [http-nio-8080-exec-9] c.y.c.m.m.UserMapper.selectByPrimaryKey  : ==> Parameters: 4(Long)
+2022-08-30 13:33:29.082 DEBUG 42928 --- [http-nio-8080-exec-9] c.y.c.m.m.UserMapper.selectByPrimaryKey  : <==      Total: 1
+2022-08-30 13:34:02.265  INFO 39444 --- [restartedMain] c.y.c.m.MyCommunityApplication           : Starting MyCommunityApplication on LAPTOP-N7A9SVGH with PID 39444 (D:\myfile\Java\MyCommunity\target\classes started by yyw in D:\myfile\Java\MyCommunity)
+2022-08-30 13:34:02.270  INFO 39444 --- [restartedMain] c.y.c.m.MyCommunityApplication           : No active profile set, falling back to default profiles: default
+2022-08-30 13:34:02.412  INFO 39444 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-08-30 13:34:02.413  INFO 39444 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-08-30 13:34:04.584  INFO 39444 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-08-30 13:34:04.608  INFO 39444 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-08-30 13:34:04.609  INFO 39444 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.41]
+2022-08-30 13:34:04.881  INFO 39444 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-08-30 13:34:04.882  INFO 39444 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2468 ms
+2022-08-30 13:34:06.112  INFO 39444 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2022-08-30 13:34:06.253  INFO 39444 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2022-08-30 13:34:06.760  INFO 39444 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-08-30 13:34:06.890  INFO 39444 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-08-30 13:34:06.915  INFO 39444 --- [restartedMain] c.y.c.m.MyCommunityApplication           : Started MyCommunityApplication in 5.276 seconds (JVM running for 6.814)
+2022-08-30 13:34:12.137  INFO 39444 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-08-30 13:34:12.138  INFO 39444 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-08-30 13:34:12.157  INFO 39444 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 18 ms
+2022-08-30 13:34:12.286  INFO 39444 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-08-30 13:34:13.506  INFO 39444 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-08-30 13:34:13.520 DEBUG 39444 --- [http-nio-8080-exec-1] c.y.c.m.m.PostExtMapper.countBySearch    : ==>  Preparing: select count(*) from post
+2022-08-30 13:34:13.550 DEBUG 39444 --- [http-nio-8080-exec-1] c.y.c.m.m.PostExtMapper.countBySearch    : ==> Parameters: 
+2022-08-30 13:34:13.580 DEBUG 39444 --- [http-nio-8080-exec-1] c.y.c.m.m.PostExtMapper.countBySearch    : <==      Total: 1
+2022-08-30 13:34:13.588 DEBUG 39444 --- [http-nio-8080-exec-1] c.y.c.m.m.PostExtMapper.selectBySearch   : ==>  Preparing: select * from post order by gmt_create desc limit ?, ?
+2022-08-30 13:34:13.589 DEBUG 39444 --- [http-nio-8080-exec-1] c.y.c.m.m.PostExtMapper.selectBySearch   : ==> Parameters: 0(Integer), 5(Integer)
+2022-08-30 13:34:13.597 DEBUG 39444 --- [http-nio-8080-exec-1] c.y.c.m.m.PostExtMapper.selectBySearch   : <==      Total: 5
+2022-08-30 13:34:13.598 DEBUG 39444 --- [http-nio-8080-exec-1] c.y.c.m.m.UserMapper.selectByPrimaryKey  : ==>  Preparing: select id, account_id, name, bio, token, avatar_url, gmt_create, gmt_modified, is_valid from user where id = ?
+2022-08-30 13:34:13.599 DEBUG 39444 --- [http-nio-8080-exec-1] c.y.c.m.m.UserMapper.selectByPrimaryKey  : ==> Parameters: 4(Long)
+2022-08-30 13:34:13.608 DEBUG 39444 --- [http-nio-8080-exec-1] c.y.c.m.m.UserMapper.selectByPrimaryKey  : <==      Total: 1
+2022-08-30 13:34:13.633 DEBUG 39444 --- [http-nio-8080-exec-1] c.y.c.m.m.UserMapper.selectByPrimaryKey  : ==>  Preparing: select id, account_id, name, bio, token, avatar_url, gmt_create, gmt_modified, is_valid from user where id = ?
+2022-08-30 13:34:13.634 DEBUG 39444 --- [http-nio-8080-exec-1] c.y.c.m.m.UserMapper.selectByPrimaryKey  : ==> Parameters: 5(Long)
+2022-08-30 13:34:13.637 DEBUG 39444 --- [http-nio-8080-exec-1] c.y.c.m.m.UserMapper.selectByPrimaryKey  : <==      Total: 1
+2022-08-30 13:34:13.638 DEBUG 39444 --- [http-nio-8080-exec-1] c.y.c.m.m.UserMapper.selectByPrimaryKey  : ==>  Preparing: select id, account_id, name, bio, token, avatar_url, gmt_create, gmt_modified, is_valid from user where id = ?
+2022-08-30 13:34:13.639 DEBUG 39444 --- [http-nio-8080-exec-1] c.y.c.m.m.UserMapper.selectByPrimaryKey  : ==> Parameters: 5(Long)
+2022-08-30 13:34:13.643 DEBUG 39444 --- [http-nio-8080-exec-1] c.y.c.m.m.UserMapper.selectByPrimaryKey  : <==      Total: 1
+2022-08-30 13:34:13.644 DEBUG 39444 --- [http-nio-8080-exec-1] c.y.c.m.m.UserMapper.selectByPrimaryKey  : ==>  Preparing: select id, account_id, name, bio, token, avatar_url, gmt_create, gmt_modified, is_valid from user where id = ?
+2022-08-30 13:34:13.644 DEBUG 39444 --- [http-nio-8080-exec-1] c.y.c.m.m.UserMapper.selectByPrimaryKey  : ==> Parameters: 4(Long)
+2022-08-30 13:34:13.647 DEBUG 39444 --- [http-nio-8080-exec-1] c.y.c.m.m.UserMapper.selectByPrimaryKey  : <==      Total: 1
+2022-08-30 13:34:13.649 DEBUG 39444 --- [http-nio-8080-exec-1] c.y.c.m.m.UserMapper.selectByPrimaryKey  : ==>  Preparing: select id, account_id, name, bio, token, avatar_url, gmt_create, gmt_modified, is_valid from user where id = ?
+2022-08-30 13:34:13.650 DEBUG 39444 --- [http-nio-8080-exec-1] c.y.c.m.m.UserMapper.selectByPrimaryKey  : ==> Parameters: 4(Long)
+2022-08-30 13:34:13.653 DEBUG 39444 --- [http-nio-8080-exec-1] c.y.c.m.m.UserMapper.selectByPrimaryKey  : <==      Total: 1
+2022-08-30 13:35:24.108 DEBUG 39444 --- [http-nio-8080-exec-7] c.y.c.m.m.PostExtMapper.countBySearch    : ==>  Preparing: select count(*) from post
+2022-08-30 13:35:24.108 DEBUG 39444 --- [http-nio-8080-exec-7] c.y.c.m.m.PostExtMapper.countBySearch    : ==> Parameters: 
+2022-08-30 13:35:24.110 DEBUG 39444 --- [http-nio-8080-exec-7] c.y.c.m.m.PostExtMapper.countBySearch    : <==      Total: 1
+2022-08-30 13:35:24.111 DEBUG 39444 --- [http-nio-8080-exec-7] c.y.c.m.m.PostExtMapper.selectBySearch   : ==>  Preparing: select * from post order by gmt_create desc limit ?, ?
+2022-08-30 13:35:24.111 DEBUG 39444 --- [http-nio-8080-exec-7] c.y.c.m.m.PostExtMapper.selectBySearch   : ==> Parameters: 0(Integer), 5(Integer)
+2022-08-30 13:35:24.115 DEBUG 39444 --- [http-nio-8080-exec-7] c.y.c.m.m.PostExtMapper.selectBySearch   : <==      Total: 5
+2022-08-30 13:35:24.116 DEBUG 39444 --- [http-nio-8080-exec-7] c.y.c.m.m.UserMapper.selectByPrimaryKey  : ==>  Preparing: select id, account_id, name, bio, token, avatar_url, gmt_create, gmt_modified, is_valid from user where id = ?
+2022-08-30 13:35:24.117 DEBUG 39444 --- [http-nio-8080-exec-7] c.y.c.m.m.UserMapper.selectByPrimaryKey  : ==> Parameters: 4(Long)
+2022-08-30 13:35:24.119 DEBUG 39444 --- [http-nio-8080-exec-7] c.y.c.m.m.UserMapper.selectByPrimaryKey  : <==      Total: 1
+2022-08-30 13:35:24.120 DEBUG 39444 --- [http-nio-8080-exec-7] c.y.c.m.m.UserMapper.selectByPrimaryKey  : ==>  Preparing: select id, account_id, name, bio, token, avatar_url, gmt_create, gmt_modified, is_valid from user where id = ?
+2022-08-30 13:35:24.121 DEBUG 39444 --- [http-nio-8080-exec-7] c.y.c.m.m.UserMapper.selectByPrimaryKey  : ==> Parameters: 5(Long)
+2022-08-30 13:35:24.123 DEBUG 39444 --- [http-nio-8080-exec-7] c.y.c.m.m.UserMapper.selectByPrimaryKey  : <==      Total: 1
+2022-08-30 13:35:24.124 DEBUG 39444 --- [http-nio-8080-exec-7] c.y.c.m.m.UserMapper.selectByPrimaryKey  : ==>  Preparing: select id, account_id, name, bio, token, avatar_url, gmt_create, gmt_modified, is_valid from user where id = ?
+2022-08-30 13:35:24.125 DEBUG 39444 --- [http-nio-8080-exec-7] c.y.c.m.m.UserMapper.selectByPrimaryKey  : ==> Parameters: 5(Long)
+2022-08-30 13:35:24.127 DEBUG 39444 --- [http-nio-8080-exec-7] c.y.c.m.m.UserMapper.selectByPrimaryKey  : <==      Total: 1
+2022-08-30 13:35:24.128 DEBUG 39444 --- [http-nio-8080-exec-7] c.y.c.m.m.UserMapper.selectByPrimaryKey  : ==>  Preparing: select id, account_id, name, bio, token, avatar_url, gmt_create, gmt_modified, is_valid from user where id = ?
+2022-08-30 13:35:24.128 DEBUG 39444 --- [http-nio-8080-exec-7] c.y.c.m.m.UserMapper.selectByPrimaryKey  : ==> Parameters: 4(Long)
+2022-08-30 13:35:24.130 DEBUG 39444 --- [http-nio-8080-exec-7] c.y.c.m.m.UserMapper.selectByPrimaryKey  : <==      Total: 1
+2022-08-30 13:35:24.131 DEBUG 39444 --- [http-nio-8080-exec-7] c.y.c.m.m.UserMapper.selectByPrimaryKey  : ==>  Preparing: select id, account_id, name, bio, token, avatar_url, gmt_create, gmt_modified, is_valid from user where id = ?
+2022-08-30 13:35:24.132 DEBUG 39444 --- [http-nio-8080-exec-7] c.y.c.m.m.UserMapper.selectByPrimaryKey  : ==> Parameters: 4(Long)
+2022-08-30 13:35:24.134 DEBUG 39444 --- [http-nio-8080-exec-7] c.y.c.m.m.UserMapper.selectByPrimaryKey  : <==      Total: 1
+2022-08-30 13:35:35.656 ERROR 39444 --- [http-nio-8080-exec-8] c.y.c.m.controller.AuthorizeController   : callbacl get github user error, GitHubUser(name=null, id=null, bio=null, avatarUrl=null)
+2022-08-30 13:35:57.192 ERROR 39444 --- [http-nio-8080-exec-3] c.y.c.m.controller.AuthorizeController   : callbacl get github user error, GitHubUser(name=null, id=null, bio=null, avatarUrl=null)
+2022-08-30 13:35:57.204 DEBUG 39444 --- [http-nio-8080-exec-7] c.y.c.m.m.PostExtMapper.countBySearch    : ==>  Preparing: select count(*) from post
+2022-08-30 13:35:57.205 DEBUG 39444 --- [http-nio-8080-exec-7] c.y.c.m.m.PostExtMapper.countBySearch    : ==> Parameters: 
+2022-08-30 13:35:57.207 DEBUG 39444 --- [http-nio-8080-exec-7] c.y.c.m.m.PostExtMapper.countBySearch    : <==      Total: 1
+2022-08-30 13:35:57.208 DEBUG 39444 --- [http-nio-8080-exec-7] c.y.c.m.m.PostExtMapper.selectBySearch   : ==>  Preparing: select * from post order by gmt_create desc limit ?, ?
+2022-08-30 13:35:57.210 DEBUG 39444 --- [http-nio-8080-exec-7] c.y.c.m.m.PostExtMapper.selectBySearch   : ==> Parameters: 0(Integer), 5(Integer)
+2022-08-30 13:35:57.216 DEBUG 39444 --- [http-nio-8080-exec-7] c.y.c.m.m.PostExtMapper.selectBySearch   : <==      Total: 5
+2022-08-30 13:35:57.219 DEBUG 39444 --- [http-nio-8080-exec-7] c.y.c.m.m.UserMapper.selectByPrimaryKey  : ==>  Preparing: select id, account_id, name, bio, token, avatar_url, gmt_create, gmt_modified, is_valid from user where id = ?
+2022-08-30 13:35:57.220 DEBUG 39444 --- [http-nio-8080-exec-7] c.y.c.m.m.UserMapper.selectByPrimaryKey  : ==> Parameters: 4(Long)
+2022-08-30 13:35:57.222 DEBUG 39444 --- [http-nio-8080-exec-7] c.y.c.m.m.UserMapper.selectByPrimaryKey  : <==      Total: 1
+2022-08-30 13:35:57.223 DEBUG 39444 --- [http-nio-8080-exec-7] c.y.c.m.m.UserMapper.selectByPrimaryKey  : ==>  Preparing: select id, account_id, name, bio, token, avatar_url, gmt_create, gmt_modified, is_valid from user where id = ?
+2022-08-30 13:35:57.223 DEBUG 39444 --- [http-nio-8080-exec-7] c.y.c.m.m.UserMapper.selectByPrimaryKey  : ==> Parameters: 5(Long)
+2022-08-30 13:35:57.225 DEBUG 39444 --- [http-nio-8080-exec-7] c.y.c.m.m.UserMapper.selectByPrimaryKey  : <==      Total: 1
+2022-08-30 13:35:57.226 DEBUG 39444 --- [http-nio-8080-exec-7] c.y.c.m.m.UserMapper.selectByPrimaryKey  : ==>  Preparing: select id, account_id, name, bio, token, avatar_url, gmt_create, gmt_modified, is_valid from user where id = ?
+2022-08-30 13:35:57.227 DEBUG 39444 --- [http-nio-8080-exec-7] c.y.c.m.m.UserMapper.selectByPrimaryKey  : ==> Parameters: 5(Long)
+2022-08-30 13:35:57.229 DEBUG 39444 --- [http-nio-8080-exec-7] c.y.c.m.m.UserMapper.selectByPrimaryKey  : <==      Total: 1
+2022-08-30 13:35:57.230 DEBUG 39444 --- [http-nio-8080-exec-7] c.y.c.m.m.UserMapper.selectByPrimaryKey  : ==>  Preparing: select id, account_id, name, bio, token, avatar_url, gmt_create, gmt_modified, is_valid from user where id = ?
+2022-08-30 13:35:57.231 DEBUG 39444 --- [http-nio-8080-exec-7] c.y.c.m.m.UserMapper.selectByPrimaryKey  : ==> Parameters: 4(Long)
+2022-08-30 13:35:57.233 DEBUG 39444 --- [http-nio-8080-exec-7] c.y.c.m.m.UserMapper.selectByPrimaryKey  : <==      Total: 1
+2022-08-30 13:35:57.234 DEBUG 39444 --- [http-nio-8080-exec-7] c.y.c.m.m.UserMapper.selectByPrimaryKey  : ==>  Preparing: select id, account_id, name, bio, token, avatar_url, gmt_create, gmt_modified, is_valid from user where id = ?
+2022-08-30 13:35:57.235 DEBUG 39444 --- [http-nio-8080-exec-7] c.y.c.m.m.UserMapper.selectByPrimaryKey  : ==> Parameters: 4(Long)
+2022-08-30 13:35:57.237 DEBUG 39444 --- [http-nio-8080-exec-7] c.y.c.m.m.UserMapper.selectByPrimaryKey  : <==      Total: 1
+2022-08-30 13:37:37.190  INFO 43780 --- [restartedMain] c.y.c.m.MyCommunityApplication           : Starting MyCommunityApplication on LAPTOP-N7A9SVGH with PID 43780 (D:\myfile\Java\MyCommunity\target\classes started by yyw in D:\myfile\Java\MyCommunity)
+2022-08-30 13:37:37.194  INFO 43780 --- [restartedMain] c.y.c.m.MyCommunityApplication           : No active profile set, falling back to default profiles: default
+2022-08-30 13:37:37.271  INFO 43780 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-08-30 13:37:37.271  INFO 43780 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-08-30 13:37:39.454  INFO 43780 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-08-30 13:37:39.471  INFO 43780 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-08-30 13:37:39.472  INFO 43780 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.41]
+2022-08-30 13:37:39.760  INFO 43780 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-08-30 13:37:39.761  INFO 43780 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2489 ms
+2022-08-30 13:37:41.013  INFO 43780 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2022-08-30 13:37:41.140  INFO 43780 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2022-08-30 13:37:41.733  INFO 43780 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-08-30 13:37:41.878  INFO 43780 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-08-30 13:37:41.906  INFO 43780 --- [restartedMain] c.y.c.m.MyCommunityApplication           : Started MyCommunityApplication in 5.14 seconds (JVM running for 6.419)
+2022-08-30 13:37:47.709  INFO 43780 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-08-30 13:37:47.710  INFO 43780 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-08-30 13:37:47.722  INFO 43780 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 12 ms
+2022-08-30 13:37:47.843  INFO 43780 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-08-30 13:37:49.170  INFO 43780 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-08-30 13:37:49.193 DEBUG 43780 --- [http-nio-8080-exec-1] c.y.c.m.m.PostExtMapper.countBySearch    : ==>  Preparing: select count(*) from post
+2022-08-30 13:37:49.233 DEBUG 43780 --- [http-nio-8080-exec-1] c.y.c.m.m.PostExtMapper.countBySearch    : ==> Parameters: 
+2022-08-30 13:37:49.267 DEBUG 43780 --- [http-nio-8080-exec-1] c.y.c.m.m.PostExtMapper.countBySearch    : <==      Total: 1
+2022-08-30 13:37:49.277 DEBUG 43780 --- [http-nio-8080-exec-1] c.y.c.m.m.PostExtMapper.selectBySearch   : ==>  Preparing: select * from post order by gmt_create desc limit ?, ?
+2022-08-30 13:37:49.278 DEBUG 43780 --- [http-nio-8080-exec-1] c.y.c.m.m.PostExtMapper.selectBySearch   : ==> Parameters: 0(Integer), 5(Integer)
+2022-08-30 13:37:49.289 DEBUG 43780 --- [http-nio-8080-exec-1] c.y.c.m.m.PostExtMapper.selectBySearch   : <==      Total: 5
+2022-08-30 13:37:49.291 DEBUG 43780 --- [http-nio-8080-exec-1] c.y.c.m.m.UserMapper.selectByPrimaryKey  : ==>  Preparing: select id, account_id, name, bio, token, avatar_url, gmt_create, gmt_modified, is_valid from user where id = ?
+2022-08-30 13:37:49.292 DEBUG 43780 --- [http-nio-8080-exec-1] c.y.c.m.m.UserMapper.selectByPrimaryKey  : ==> Parameters: 4(Long)
+2022-08-30 13:37:49.301 DEBUG 43780 --- [http-nio-8080-exec-1] c.y.c.m.m.UserMapper.selectByPrimaryKey  : <==      Total: 1
+2022-08-30 13:37:49.325 DEBUG 43780 --- [http-nio-8080-exec-1] c.y.c.m.m.UserMapper.selectByPrimaryKey  : ==>  Preparing: select id, account_id, name, bio, token, avatar_url, gmt_create, gmt_modified, is_valid from user where id = ?
+2022-08-30 13:37:49.326 DEBUG 43780 --- [http-nio-8080-exec-1] c.y.c.m.m.UserMapper.selectByPrimaryKey  : ==> Parameters: 5(Long)
+2022-08-30 13:37:49.328 DEBUG 43780 --- [http-nio-8080-exec-1] c.y.c.m.m.UserMapper.selectByPrimaryKey  : <==      Total: 1
+2022-08-30 13:37:49.329 DEBUG 43780 --- [http-nio-8080-exec-1] c.y.c.m.m.UserMapper.selectByPrimaryKey  : ==>  Preparing: select id, account_id, name, bio, token, avatar_url, gmt_create, gmt_modified, is_valid from user where id = ?
+2022-08-30 13:37:49.330 DEBUG 43780 --- [http-nio-8080-exec-1] c.y.c.m.m.UserMapper.selectByPrimaryKey  : ==> Parameters: 5(Long)
+2022-08-30 13:37:49.333 DEBUG 43780 --- [http-nio-8080-exec-1] c.y.c.m.m.UserMapper.selectByPrimaryKey  : <==      Total: 1
+2022-08-30 13:37:49.335 DEBUG 43780 --- [http-nio-8080-exec-1] c.y.c.m.m.UserMapper.selectByPrimaryKey  : ==>  Preparing: select id, account_id, name, bio, token, avatar_url, gmt_create, gmt_modified, is_valid from user where id = ?
+2022-08-30 13:37:49.336 DEBUG 43780 --- [http-nio-8080-exec-1] c.y.c.m.m.UserMapper.selectByPrimaryKey  : ==> Parameters: 4(Long)
+2022-08-30 13:37:49.340 DEBUG 43780 --- [http-nio-8080-exec-1] c.y.c.m.m.UserMapper.selectByPrimaryKey  : <==      Total: 1
+2022-08-30 13:37:49.342 DEBUG 43780 --- [http-nio-8080-exec-1] c.y.c.m.m.UserMapper.selectByPrimaryKey  : ==>  Preparing: select id, account_id, name, bio, token, avatar_url, gmt_create, gmt_modified, is_valid from user where id = ?
+2022-08-30 13:37:49.342 DEBUG 43780 --- [http-nio-8080-exec-1] c.y.c.m.m.UserMapper.selectByPrimaryKey  : ==> Parameters: 4(Long)
+2022-08-30 13:37:49.345 DEBUG 43780 --- [http-nio-8080-exec-1] c.y.c.m.m.UserMapper.selectByPrimaryKey  : <==      Total: 1
+2022-08-30 13:37:54.551 DEBUG 43780 --- [http-nio-8080-exec-8] c.y.c.m.m.UserMapper.selectByExample     : ==>  Preparing: select id, account_id, name, bio, token, avatar_url, gmt_create, gmt_modified, is_valid from user WHERE ( account_id = ? )
+2022-08-30 13:37:54.552 DEBUG 43780 --- [http-nio-8080-exec-8] c.y.c.m.m.UserMapper.selectByExample     : ==> Parameters: 84451807(String)
+2022-08-30 13:37:54.556 DEBUG 43780 --- [http-nio-8080-exec-8] c.y.c.m.m.UserMapper.selectByExample     : <==      Total: 1
+2022-08-30 13:37:54.565 DEBUG 43780 --- [http-nio-8080-exec-8] c.y.c.m.m.U.updateByExampleSelective     : ==>  Preparing: update user SET name = ?, bio = ?, token = ?, avatar_url = ?, gmt_modified = ?, is_valid = ? WHERE ( id = ? )
+2022-08-30 13:37:54.566 DEBUG 43780 --- [http-nio-8080-exec-8] c.y.c.m.m.U.updateByExampleSelective     : ==> Parameters: Dantence(String), Keep coding!(String), 89c04534-4e90-4348-8f7d-96627c75c099(String), https://avatars.githubusercontent.com/u/84451807?v=4(String), 1661837874557(Long), 1(Integer), 4(Long)
+2022-08-30 13:37:54.574 DEBUG 43780 --- [http-nio-8080-exec-8] c.y.c.m.m.U.updateByExampleSelective     : <==    Updates: 1
+2022-08-30 13:37:54.596 DEBUG 43780 --- [http-nio-8080-exec-9] c.y.c.m.m.UserMapper.selectByExample     : ==>  Preparing: select id, account_id, name, bio, token, avatar_url, gmt_create, gmt_modified, is_valid from user WHERE ( token = ? )
+2022-08-30 13:37:54.597 DEBUG 43780 --- [http-nio-8080-exec-9] c.y.c.m.m.UserMapper.selectByExample     : ==> Parameters: 89c04534-4e90-4348-8f7d-96627c75c099(String)
+2022-08-30 13:37:54.600 DEBUG 43780 --- [http-nio-8080-exec-9] c.y.c.m.m.UserMapper.selectByExample     : <==      Total: 1
+2022-08-30 13:37:54.825  WARN 43780 --- [http-nio-8080-exec-9] o.a.c.util.SessionIdGeneratorBase        : Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [217] milliseconds.
+2022-08-30 13:37:54.843 DEBUG 43780 --- [http-nio-8080-exec-9] c.y.c.m.m.N.countByExample               : ==>  Preparing: select count(*) from notification WHERE ( receiver = ? and status = ? )
+2022-08-30 13:37:54.844 DEBUG 43780 --- [http-nio-8080-exec-9] c.y.c.m.m.N.countByExample               : ==> Parameters: 4(Long), 0(Integer)
+2022-08-30 13:37:54.863 DEBUG 43780 --- [http-nio-8080-exec-9] c.y.c.m.m.N.countByExample               : <==      Total: 1
+2022-08-30 13:37:54.877 DEBUG 43780 --- [http-nio-8080-exec-9] c.y.c.m.m.MessageMapper.countByExample   : ==>  Preparing: select count(*) from message WHERE ( receiver = ? and status = ? )
+2022-08-30 13:37:54.878 DEBUG 43780 --- [http-nio-8080-exec-9] c.y.c.m.m.MessageMapper.countByExample   : ==> Parameters: 4(Long), 0(Integer)
+2022-08-30 13:37:54.893 DEBUG 43780 --- [http-nio-8080-exec-9] c.y.c.m.m.MessageMapper.countByExample   : <==      Total: 1
+2022-08-30 13:37:54.895 DEBUG 43780 --- [http-nio-8080-exec-9] c.y.c.m.m.PostExtMapper.countBySearch    : ==>  Preparing: select count(*) from post
+2022-08-30 13:37:54.896 DEBUG 43780 --- [http-nio-8080-exec-9] c.y.c.m.m.PostExtMapper.countBySearch    : ==> Parameters: 
+2022-08-30 13:37:54.897 DEBUG 43780 --- [http-nio-8080-exec-9] c.y.c.m.m.PostExtMapper.countBySearch    : <==      Total: 1
+2022-08-30 13:37:54.899 DEBUG 43780 --- [http-nio-8080-exec-9] c.y.c.m.m.PostExtMapper.selectBySearch   : ==>  Preparing: select * from post order by gmt_create desc limit ?, ?
+2022-08-30 13:37:54.900 DEBUG 43780 --- [http-nio-8080-exec-9] c.y.c.m.m.PostExtMapper.selectBySearch   : ==> Parameters: 0(Integer), 5(Integer)
+2022-08-30 13:37:54.906 DEBUG 43780 --- [http-nio-8080-exec-9] c.y.c.m.m.PostExtMapper.selectBySearch   : <==      Total: 5
+2022-08-30 13:37:54.908 DEBUG 43780 --- [http-nio-8080-exec-9] c.y.c.m.m.UserMapper.selectByPrimaryKey  : ==>  Preparing: select id, account_id, name, bio, token, avatar_url, gmt_create, gmt_modified, is_valid from user where id = ?
+2022-08-30 13:37:54.910 DEBUG 43780 --- [http-nio-8080-exec-9] c.y.c.m.m.UserMapper.selectByPrimaryKey  : ==> Parameters: 4(Long)
+2022-08-30 13:37:54.912 DEBUG 43780 --- [http-nio-8080-exec-9] c.y.c.m.m.UserMapper.selectByPrimaryKey  : <==      Total: 1
+2022-08-30 13:37:54.914 DEBUG 43780 --- [http-nio-8080-exec-9] c.y.c.m.m.UserMapper.selectByPrimaryKey  : ==>  Preparing: select id, account_id, name, bio, token, avatar_url, gmt_create, gmt_modified, is_valid from user where id = ?
+2022-08-30 13:37:54.916 DEBUG 43780 --- [http-nio-8080-exec-9] c.y.c.m.m.UserMapper.selectByPrimaryKey  : ==> Parameters: 5(Long)
+2022-08-30 13:37:54.920 DEBUG 43780 --- [http-nio-8080-exec-9] c.y.c.m.m.UserMapper.selectByPrimaryKey  : <==      Total: 1
+2022-08-30 13:37:54.923 DEBUG 43780 --- [http-nio-8080-exec-9] c.y.c.m.m.UserMapper.selectByPrimaryKey  : ==>  Preparing: select id, account_id, name, bio, token, avatar_url, gmt_create, gmt_modified, is_valid from user where id = ?
+2022-08-30 13:37:54.924 DEBUG 43780 --- [http-nio-8080-exec-9] c.y.c.m.m.UserMapper.selectByPrimaryKey  : ==> Parameters: 5(Long)
+2022-08-30 13:37:54.928 DEBUG 43780 --- [http-nio-8080-exec-9] c.y.c.m.m.UserMapper.selectByPrimaryKey  : <==      Total: 1
+2022-08-30 13:37:54.932 DEBUG 43780 --- [http-nio-8080-exec-9] c.y.c.m.m.UserMapper.selectByPrimaryKey  : ==>  Preparing: select id, account_id, name, bio, token, avatar_url, gmt_create, gmt_modified, is_valid from user where id = ?
+2022-08-30 13:37:54.932 DEBUG 43780 --- [http-nio-8080-exec-9] c.y.c.m.m.UserMapper.selectByPrimaryKey  : ==> Parameters: 4(Long)
+2022-08-30 13:37:54.935 DEBUG 43780 --- [http-nio-8080-exec-9] c.y.c.m.m.UserMapper.selectByPrimaryKey  : <==      Total: 1
+2022-08-30 13:37:54.936 DEBUG 43780 --- [http-nio-8080-exec-9] c.y.c.m.m.UserMapper.selectByPrimaryKey  : ==>  Preparing: select id, account_id, name, bio, token, avatar_url, gmt_create, gmt_modified, is_valid from user where id = ?
+2022-08-30 13:37:54.937 DEBUG 43780 --- [http-nio-8080-exec-9] c.y.c.m.m.UserMapper.selectByPrimaryKey  : ==> Parameters: 4(Long)
+2022-08-30 13:37:54.939 DEBUG 43780 --- [http-nio-8080-exec-9] c.y.c.m.m.UserMapper.selectByPrimaryKey  : <==      Total: 1
+2022-08-30 13:37:55.033 DEBUG 43780 --- [http-nio-8080-exec-10] c.y.c.m.m.UserMapper.selectByExample     : ==>  Preparing: select id, account_id, name, bio, token, avatar_url, gmt_create, gmt_modified, is_valid from user WHERE ( token = ? )
+2022-08-30 13:37:55.035 DEBUG 43780 --- [http-nio-8080-exec-10] c.y.c.m.m.UserMapper.selectByExample     : ==> Parameters: 89c04534-4e90-4348-8f7d-96627c75c099(String)
+2022-08-30 13:37:55.035 DEBUG 43780 --- [http-nio-8080-exec-1] c.y.c.m.m.UserMapper.selectByExample     : ==>  Preparing: select id, account_id, name, bio, token, avatar_url, gmt_create, gmt_modified, is_valid from user WHERE ( token = ? )
+2022-08-30 13:37:55.036 DEBUG 43780 --- [http-nio-8080-exec-1] c.y.c.m.m.UserMapper.selectByExample     : ==> Parameters: 89c04534-4e90-4348-8f7d-96627c75c099(String)
+2022-08-30 13:37:55.038 DEBUG 43780 --- [http-nio-8080-exec-10] c.y.c.m.m.UserMapper.selectByExample     : <==      Total: 1
+2022-08-30 13:37:55.039 DEBUG 43780 --- [http-nio-8080-exec-3] c.y.c.m.m.UserMapper.selectByExample     : ==>  Preparing: select id, account_id, name, bio, token, avatar_url, gmt_create, gmt_modified, is_valid from user WHERE ( token = ? )
+2022-08-30 13:37:55.039 DEBUG 43780 --- [http-nio-8080-exec-6] c.y.c.m.m.UserMapper.selectByExample     : ==>  Preparing: select id, account_id, name, bio, token, avatar_url, gmt_create, gmt_modified, is_valid from user WHERE ( token = ? )
+2022-08-30 13:37:55.040 DEBUG 43780 --- [http-nio-8080-exec-5] c.y.c.m.m.UserMapper.selectByExample     : ==>  Preparing: select id, account_id, name, bio, token, avatar_url, gmt_create, gmt_modified, is_valid from user WHERE ( token = ? )
+2022-08-30 13:37:55.041 DEBUG 43780 --- [http-nio-8080-exec-3] c.y.c.m.m.UserMapper.selectByExample     : ==> Parameters: 89c04534-4e90-4348-8f7d-96627c75c099(String)
+2022-08-30 13:37:55.041 DEBUG 43780 --- [http-nio-8080-exec-6] c.y.c.m.m.UserMapper.selectByExample     : ==> Parameters: 89c04534-4e90-4348-8f7d-96627c75c099(String)
+2022-08-30 13:37:55.041 DEBUG 43780 --- [http-nio-8080-exec-5] c.y.c.m.m.UserMapper.selectByExample     : ==> Parameters: 89c04534-4e90-4348-8f7d-96627c75c099(String)
+2022-08-30 13:37:55.043 DEBUG 43780 --- [http-nio-8080-exec-10] c.y.c.m.m.N.countByExample               : ==>  Preparing: select count(*) from notification WHERE ( receiver = ? and status = ? )
+2022-08-30 13:37:55.045 DEBUG 43780 --- [http-nio-8080-exec-10] c.y.c.m.m.N.countByExample               : ==> Parameters: 4(Long), 0(Integer)
+2022-08-30 13:37:55.047 DEBUG 43780 --- [http-nio-8080-exec-3] c.y.c.m.m.UserMapper.selectByExample     : <==      Total: 1
+2022-08-30 13:37:55.048 DEBUG 43780 --- [http-nio-8080-exec-10] c.y.c.m.m.N.countByExample               : <==      Total: 1
+2022-08-30 13:37:55.049 DEBUG 43780 --- [http-nio-8080-exec-1] c.y.c.m.m.UserMapper.selectByExample     : <==      Total: 1
+2022-08-30 13:37:55.052 DEBUG 43780 --- [http-nio-8080-exec-1] c.y.c.m.m.N.countByExample               : ==>  Preparing: select count(*) from notification WHERE ( receiver = ? and status = ? )
+2022-08-30 13:37:55.053 DEBUG 43780 --- [http-nio-8080-exec-10] c.y.c.m.m.MessageMapper.countByExample   : ==>  Preparing: select count(*) from message WHERE ( receiver = ? and status = ? )
+2022-08-30 13:37:55.054 DEBUG 43780 --- [http-nio-8080-exec-3] c.y.c.m.m.N.countByExample               : ==>  Preparing: select count(*) from notification WHERE ( receiver = ? and status = ? )
+2022-08-30 13:37:55.054 DEBUG 43780 --- [http-nio-8080-exec-1] c.y.c.m.m.N.countByExample               : ==> Parameters: 4(Long), 0(Integer)
+2022-08-30 13:37:55.054 DEBUG 43780 --- [http-nio-8080-exec-10] c.y.c.m.m.MessageMapper.countByExample   : ==> Parameters: 4(Long), 0(Integer)
+2022-08-30 13:37:55.057 DEBUG 43780 --- [http-nio-8080-exec-3] c.y.c.m.m.N.countByExample               : ==> Parameters: 4(Long), 0(Integer)
+2022-08-30 13:37:55.058 DEBUG 43780 --- [http-nio-8080-exec-10] c.y.c.m.m.MessageMapper.countByExample   : <==      Total: 1
+2022-08-30 13:37:55.069 DEBUG 43780 --- [http-nio-8080-exec-1] c.y.c.m.m.N.countByExample               : <==      Total: 1
+2022-08-30 13:37:55.072 DEBUG 43780 --- [http-nio-8080-exec-1] c.y.c.m.m.MessageMapper.countByExample   : ==>  Preparing: select count(*) from message WHERE ( receiver = ? and status = ? )
+2022-08-30 13:37:55.072 DEBUG 43780 --- [http-nio-8080-exec-3] c.y.c.m.m.N.countByExample               : <==      Total: 1
+2022-08-30 13:37:55.073 DEBUG 43780 --- [http-nio-8080-exec-1] c.y.c.m.m.MessageMapper.countByExample   : ==> Parameters: 4(Long), 0(Integer)
+2022-08-30 13:37:55.075 DEBUG 43780 --- [http-nio-8080-exec-5] c.y.c.m.m.UserMapper.selectByExample     : <==      Total: 1
+2022-08-30 13:37:55.076 DEBUG 43780 --- [http-nio-8080-exec-3] c.y.c.m.m.MessageMapper.countByExample   : ==>  Preparing: select count(*) from message WHERE ( receiver = ? and status = ? )
+2022-08-30 13:37:55.078 DEBUG 43780 --- [http-nio-8080-exec-5] c.y.c.m.m.N.countByExample               : ==>  Preparing: select count(*) from notification WHERE ( receiver = ? and status = ? )
+2022-08-30 13:37:55.078 DEBUG 43780 --- [http-nio-8080-exec-3] c.y.c.m.m.MessageMapper.countByExample   : ==> Parameters: 4(Long), 0(Integer)
+2022-08-30 13:37:55.080 DEBUG 43780 --- [http-nio-8080-exec-5] c.y.c.m.m.N.countByExample               : ==> Parameters: 4(Long), 0(Integer)
+2022-08-30 13:37:55.082 DEBUG 43780 --- [http-nio-8080-exec-6] c.y.c.m.m.UserMapper.selectByExample     : <==      Total: 1
+2022-08-30 13:37:55.085 DEBUG 43780 --- [http-nio-8080-exec-1] c.y.c.m.m.MessageMapper.countByExample   : <==      Total: 1
+2022-08-30 13:37:55.085 DEBUG 43780 --- [http-nio-8080-exec-6] c.y.c.m.m.N.countByExample               : ==>  Preparing: select count(*) from notification WHERE ( receiver = ? and status = ? )
+2022-08-30 13:37:55.087 DEBUG 43780 --- [http-nio-8080-exec-6] c.y.c.m.m.N.countByExample               : ==> Parameters: 4(Long), 0(Integer)
+2022-08-30 13:37:55.093 DEBUG 43780 --- [http-nio-8080-exec-3] c.y.c.m.m.MessageMapper.countByExample   : <==      Total: 1
+2022-08-30 13:37:55.098 DEBUG 43780 --- [http-nio-8080-exec-5] c.y.c.m.m.N.countByExample               : <==      Total: 1
+2022-08-30 13:37:55.102 DEBUG 43780 --- [http-nio-8080-exec-5] c.y.c.m.m.MessageMapper.countByExample   : ==>  Preparing: select count(*) from message WHERE ( receiver = ? and status = ? )
+2022-08-30 13:37:55.104 DEBUG 43780 --- [http-nio-8080-exec-6] c.y.c.m.m.N.countByExample               : <==      Total: 1
+2022-08-30 13:37:55.105 DEBUG 43780 --- [http-nio-8080-exec-5] c.y.c.m.m.MessageMapper.countByExample   : ==> Parameters: 4(Long), 0(Integer)
+2022-08-30 13:37:55.143 DEBUG 43780 --- [http-nio-8080-exec-6] c.y.c.m.m.MessageMapper.countByExample   : ==>  Preparing: select count(*) from message WHERE ( receiver = ? and status = ? )
+2022-08-30 13:37:55.145 DEBUG 43780 --- [http-nio-8080-exec-6] c.y.c.m.m.MessageMapper.countByExample   : ==> Parameters: 4(Long), 0(Integer)
+2022-08-30 13:37:55.153 DEBUG 43780 --- [http-nio-8080-exec-5] c.y.c.m.m.MessageMapper.countByExample   : <==      Total: 1
+2022-08-30 13:37:55.158 DEBUG 43780 --- [http-nio-8080-exec-6] c.y.c.m.m.MessageMapper.countByExample   : <==      Total: 1
+2022-08-30 13:37:55.232 DEBUG 43780 --- [http-nio-8080-exec-4] c.y.c.m.m.UserMapper.selectByExample     : ==>  Preparing: select id, account_id, name, bio, token, avatar_url, gmt_create, gmt_modified, is_valid from user WHERE ( token = ? )
+2022-08-30 13:37:55.234 DEBUG 43780 --- [http-nio-8080-exec-4] c.y.c.m.m.UserMapper.selectByExample     : ==> Parameters: 89c04534-4e90-4348-8f7d-96627c75c099(String)
+2022-08-30 13:37:55.236 DEBUG 43780 --- [http-nio-8080-exec-4] c.y.c.m.m.UserMapper.selectByExample     : <==      Total: 1
+2022-08-30 13:37:55.240 DEBUG 43780 --- [http-nio-8080-exec-4] c.y.c.m.m.N.countByExample               : ==>  Preparing: select count(*) from notification WHERE ( receiver = ? and status = ? )
+2022-08-30 13:37:55.242 DEBUG 43780 --- [http-nio-8080-exec-4] c.y.c.m.m.N.countByExample               : ==> Parameters: 4(Long), 0(Integer)
+2022-08-30 13:37:55.244 DEBUG 43780 --- [http-nio-8080-exec-4] c.y.c.m.m.N.countByExample               : <==      Total: 1
+2022-08-30 13:37:55.247 DEBUG 43780 --- [http-nio-8080-exec-4] c.y.c.m.m.MessageMapper.countByExample   : ==>  Preparing: select count(*) from message WHERE ( receiver = ? and status = ? )
+2022-08-30 13:37:55.249 DEBUG 43780 --- [http-nio-8080-exec-4] c.y.c.m.m.MessageMapper.countByExample   : ==> Parameters: 4(Long), 0(Integer)
+2022-08-30 13:37:55.251 DEBUG 43780 --- [http-nio-8080-exec-4] c.y.c.m.m.MessageMapper.countByExample   : <==      Total: 1
+2022-08-30 13:38:05.043 DEBUG 43780 --- [http-nio-8080-exec-2] c.y.c.m.m.UserMapper.selectByExample     : ==>  Preparing: select id, account_id, name, bio, token, avatar_url, gmt_create, gmt_modified, is_valid from user WHERE ( token = ? )
+2022-08-30 13:38:05.044 DEBUG 43780 --- [http-nio-8080-exec-7] c.y.c.m.m.UserMapper.selectByExample     : ==>  Preparing: select id, account_id, name, bio, token, avatar_url, gmt_create, gmt_modified, is_valid from user WHERE ( token = ? )
+2022-08-30 13:38:05.045 DEBUG 43780 --- [http-nio-8080-exec-2] c.y.c.m.m.UserMapper.selectByExample     : ==> Parameters: 89c04534-4e90-4348-8f7d-96627c75c099(String)
+2022-08-30 13:38:05.045 DEBUG 43780 --- [http-nio-8080-exec-7] c.y.c.m.m.UserMapper.selectByExample     : ==> Parameters: 89c04534-4e90-4348-8f7d-96627c75c099(String)
+2022-08-30 13:38:05.046 DEBUG 43780 --- [http-nio-8080-exec-9] c.y.c.m.m.UserMapper.selectByExample     : ==>  Preparing: select id, account_id, name, bio, token, avatar_url, gmt_create, gmt_modified, is_valid from user WHERE ( token = ? )
+2022-08-30 13:38:05.046 DEBUG 43780 --- [http-nio-8080-exec-10] c.y.c.m.m.UserMapper.selectByExample     : ==>  Preparing: select id, account_id, name, bio, token, avatar_url, gmt_create, gmt_modified, is_valid from user WHERE ( token = ? )
+2022-08-30 13:38:05.047 DEBUG 43780 --- [http-nio-8080-exec-2] c.y.c.m.m.UserMapper.selectByExample     : <==      Total: 1
+2022-08-30 13:38:05.047 DEBUG 43780 --- [http-nio-8080-exec-7] c.y.c.m.m.UserMapper.selectByExample     : <==      Total: 1
+2022-08-30 13:38:05.047 DEBUG 43780 --- [http-nio-8080-exec-9] c.y.c.m.m.UserMapper.selectByExample     : ==> Parameters: 89c04534-4e90-4348-8f7d-96627c75c099(String)
+2022-08-30 13:38:05.046 DEBUG 43780 --- [http-nio-8080-exec-8] c.y.c.m.m.UserMapper.selectByExample     : ==>  Preparing: select id, account_id, name, bio, token, avatar_url, gmt_create, gmt_modified, is_valid from user WHERE ( token = ? )
+2022-08-30 13:38:05.048 DEBUG 43780 --- [http-nio-8080-exec-10] c.y.c.m.m.UserMapper.selectByExample     : ==> Parameters: 89c04534-4e90-4348-8f7d-96627c75c099(String)
+2022-08-30 13:38:05.049 DEBUG 43780 --- [http-nio-8080-exec-8] c.y.c.m.m.UserMapper.selectByExample     : ==> Parameters: 89c04534-4e90-4348-8f7d-96627c75c099(String)
+2022-08-30 13:38:05.050 DEBUG 43780 --- [http-nio-8080-exec-7] c.y.c.m.m.N.countByExample               : ==>  Preparing: select count(*) from notification WHERE ( receiver = ? and status = ? )
+2022-08-30 13:38:05.051 DEBUG 43780 --- [http-nio-8080-exec-7] c.y.c.m.m.N.countByExample               : ==> Parameters: 4(Long), 0(Integer)
+2022-08-30 13:38:05.051 DEBUG 43780 --- [http-nio-8080-exec-10] c.y.c.m.m.UserMapper.selectByExample     : <==      Total: 1
+2022-08-30 13:38:05.051 DEBUG 43780 --- [http-nio-8080-exec-8] c.y.c.m.m.UserMapper.selectByExample     : <==      Total: 1
+2022-08-30 13:38:05.051 DEBUG 43780 --- [http-nio-8080-exec-9] c.y.c.m.m.UserMapper.selectByExample     : <==      Total: 1
+2022-08-30 13:38:05.051 DEBUG 43780 --- [http-nio-8080-exec-2] c.y.c.m.m.N.countByExample               : ==>  Preparing: select count(*) from notification WHERE ( receiver = ? and status = ? )
+2022-08-30 13:38:05.053 DEBUG 43780 --- [http-nio-8080-exec-7] c.y.c.m.m.N.countByExample               : <==      Total: 1
+2022-08-30 13:38:05.054 DEBUG 43780 --- [http-nio-8080-exec-9] c.y.c.m.m.N.countByExample               : ==>  Preparing: select count(*) from notification WHERE ( receiver = ? and status = ? )
+2022-08-30 13:38:05.054 DEBUG 43780 --- [http-nio-8080-exec-10] c.y.c.m.m.N.countByExample               : ==>  Preparing: select count(*) from notification WHERE ( receiver = ? and status = ? )
+2022-08-30 13:38:05.054 DEBUG 43780 --- [http-nio-8080-exec-2] c.y.c.m.m.N.countByExample               : ==> Parameters: 4(Long), 0(Integer)
+2022-08-30 13:38:05.054 DEBUG 43780 --- [http-nio-8080-exec-9] c.y.c.m.m.N.countByExample               : ==> Parameters: 4(Long), 0(Integer)
+2022-08-30 13:38:05.054 DEBUG 43780 --- [http-nio-8080-exec-8] c.y.c.m.m.N.countByExample               : ==>  Preparing: select count(*) from notification WHERE ( receiver = ? and status = ? )
+2022-08-30 13:38:05.054 DEBUG 43780 --- [http-nio-8080-exec-10] c.y.c.m.m.N.countByExample               : ==> Parameters: 4(Long), 0(Integer)
+2022-08-30 13:38:05.055 DEBUG 43780 --- [http-nio-8080-exec-8] c.y.c.m.m.N.countByExample               : ==> Parameters: 4(Long), 0(Integer)
+2022-08-30 13:38:05.057 DEBUG 43780 --- [http-nio-8080-exec-2] c.y.c.m.m.N.countByExample               : <==      Total: 1
+2022-08-30 13:38:05.057 DEBUG 43780 --- [http-nio-8080-exec-9] c.y.c.m.m.N.countByExample               : <==      Total: 1
+2022-08-30 13:38:05.057 DEBUG 43780 --- [http-nio-8080-exec-8] c.y.c.m.m.N.countByExample               : <==      Total: 1
+2022-08-30 13:38:05.058 DEBUG 43780 --- [http-nio-8080-exec-10] c.y.c.m.m.N.countByExample               : <==      Total: 1
+2022-08-30 13:38:05.058 DEBUG 43780 --- [http-nio-8080-exec-7] c.y.c.m.m.MessageMapper.countByExample   : ==>  Preparing: select count(*) from message WHERE ( receiver = ? and status = ? )
+2022-08-30 13:38:05.058 DEBUG 43780 --- [http-nio-8080-exec-7] c.y.c.m.m.MessageMapper.countByExample   : ==> Parameters: 4(Long), 0(Integer)
+2022-08-30 13:38:05.059 DEBUG 43780 --- [http-nio-8080-exec-2] c.y.c.m.m.MessageMapper.countByExample   : ==>  Preparing: select count(*) from message WHERE ( receiver = ? and status = ? )
+2022-08-30 13:38:05.059 DEBUG 43780 --- [http-nio-8080-exec-8] c.y.c.m.m.MessageMapper.countByExample   : ==>  Preparing: select count(*) from message WHERE ( receiver = ? and status = ? )
+2022-08-30 13:38:05.059 DEBUG 43780 --- [http-nio-8080-exec-10] c.y.c.m.m.MessageMapper.countByExample   : ==>  Preparing: select count(*) from message WHERE ( receiver = ? and status = ? )
+2022-08-30 13:38:05.059 DEBUG 43780 --- [http-nio-8080-exec-9] c.y.c.m.m.MessageMapper.countByExample   : ==>  Preparing: select count(*) from message WHERE ( receiver = ? and status = ? )
+2022-08-30 13:38:05.060 DEBUG 43780 --- [http-nio-8080-exec-2] c.y.c.m.m.MessageMapper.countByExample   : ==> Parameters: 4(Long), 0(Integer)
+2022-08-30 13:38:05.060 DEBUG 43780 --- [http-nio-8080-exec-8] c.y.c.m.m.MessageMapper.countByExample   : ==> Parameters: 4(Long), 0(Integer)
+2022-08-30 13:38:05.060 DEBUG 43780 --- [http-nio-8080-exec-10] c.y.c.m.m.MessageMapper.countByExample   : ==> Parameters: 4(Long), 0(Integer)
+2022-08-30 13:38:05.060 DEBUG 43780 --- [http-nio-8080-exec-9] c.y.c.m.m.MessageMapper.countByExample   : ==> Parameters: 4(Long), 0(Integer)
+2022-08-30 13:38:05.060 DEBUG 43780 --- [http-nio-8080-exec-7] c.y.c.m.m.MessageMapper.countByExample   : <==      Total: 1
+2022-08-30 13:38:05.062 DEBUG 43780 --- [http-nio-8080-exec-2] c.y.c.m.m.MessageMapper.countByExample   : <==      Total: 1
+2022-08-30 13:38:05.063 DEBUG 43780 --- [http-nio-8080-exec-9] c.y.c.m.m.MessageMapper.countByExample   : <==      Total: 1
+2022-08-30 13:38:05.062 DEBUG 43780 --- [http-nio-8080-exec-8] c.y.c.m.m.MessageMapper.countByExample   : <==      Total: 1
+2022-08-30 13:38:05.062 DEBUG 43780 --- [http-nio-8080-exec-10] c.y.c.m.m.MessageMapper.countByExample   : <==      Total: 1
+2022-08-30 13:38:15.053 DEBUG 43780 --- [http-nio-8080-exec-1] c.y.c.m.m.UserMapper.selectByExample     : ==>  Preparing: select id, account_id, name, bio, token, avatar_url, gmt_create, gmt_modified, is_valid from user WHERE ( token = ? )
+2022-08-30 13:38:15.054 DEBUG 43780 --- [http-nio-8080-exec-1] c.y.c.m.m.UserMapper.selectByExample     : ==> Parameters: 89c04534-4e90-4348-8f7d-96627c75c099(String)
+2022-08-30 13:38:15.056 DEBUG 43780 --- [http-nio-8080-exec-1] c.y.c.m.m.UserMapper.selectByExample     : <==      Total: 1
+2022-08-30 13:38:15.059 DEBUG 43780 --- [http-nio-8080-exec-1] c.y.c.m.m.N.countByExample               : ==>  Preparing: select count(*) from notification WHERE ( receiver = ? and status = ? )
+2022-08-30 13:38:15.060 DEBUG 43780 --- [http-nio-8080-exec-1] c.y.c.m.m.N.countByExample               : ==> Parameters: 4(Long), 0(Integer)
+2022-08-30 13:38:15.062 DEBUG 43780 --- [http-nio-8080-exec-1] c.y.c.m.m.N.countByExample               : <==      Total: 1
+2022-08-30 13:38:15.065 DEBUG 43780 --- [http-nio-8080-exec-1] c.y.c.m.m.MessageMapper.countByExample   : ==>  Preparing: select count(*) from message WHERE ( receiver = ? and status = ? )
+2022-08-30 13:38:15.065 DEBUG 43780 --- [http-nio-8080-exec-1] c.y.c.m.m.MessageMapper.countByExample   : ==> Parameters: 4(Long), 0(Integer)
+2022-08-30 13:38:15.067 DEBUG 43780 --- [http-nio-8080-exec-1] c.y.c.m.m.MessageMapper.countByExample   : <==      Total: 1
+2022-08-30 13:38:15.069 DEBUG 43780 --- [http-nio-8080-exec-1] c.y.c.m.m.PostExtMapper.countBySearch    : ==>  Preparing: select count(*) from post
+2022-08-30 13:38:15.070 DEBUG 43780 --- [http-nio-8080-exec-1] c.y.c.m.m.PostExtMapper.countBySearch    : ==> Parameters: 
+2022-08-30 13:38:15.079 DEBUG 43780 --- [http-nio-8080-exec-1] c.y.c.m.m.PostExtMapper.countBySearch    : <==      Total: 1
+2022-08-30 13:38:15.080 DEBUG 43780 --- [http-nio-8080-exec-1] c.y.c.m.m.PostExtMapper.selectBySearch   : ==>  Preparing: select * from post order by gmt_create desc limit ?, ?
+2022-08-30 13:38:15.081 DEBUG 43780 --- [http-nio-8080-exec-1] c.y.c.m.m.PostExtMapper.selectBySearch   : ==> Parameters: 0(Integer), 5(Integer)
+2022-08-30 13:38:15.085 DEBUG 43780 --- [http-nio-8080-exec-1] c.y.c.m.m.PostExtMapper.selectBySearch   : <==      Total: 5
+2022-08-30 13:38:15.086 DEBUG 43780 --- [http-nio-8080-exec-1] c.y.c.m.m.UserMapper.selectByPrimaryKey  : ==>  Preparing: select id, account_id, name, bio, token, avatar_url, gmt_create, gmt_modified, is_valid from user where id = ?
+2022-08-30 13:38:15.087 DEBUG 43780 --- [http-nio-8080-exec-1] c.y.c.m.m.UserMapper.selectByPrimaryKey  : ==> Parameters: 4(Long)
+2022-08-30 13:38:15.089 DEBUG 43780 --- [http-nio-8080-exec-1] c.y.c.m.m.UserMapper.selectByPrimaryKey  : <==      Total: 1
+2022-08-30 13:38:15.091 DEBUG 43780 --- [http-nio-8080-exec-1] c.y.c.m.m.UserMapper.selectByPrimaryKey  : ==>  Preparing: select id, account_id, name, bio, token, avatar_url, gmt_create, gmt_modified, is_valid from user where id = ?
+2022-08-30 13:38:15.091 DEBUG 43780 --- [http-nio-8080-exec-1] c.y.c.m.m.UserMapper.selectByPrimaryKey  : ==> Parameters: 5(Long)
+2022-08-30 13:38:15.093 DEBUG 43780 --- [http-nio-8080-exec-1] c.y.c.m.m.UserMapper.selectByPrimaryKey  : <==      Total: 1
+2022-08-30 13:38:15.094 DEBUG 43780 --- [http-nio-8080-exec-1] c.y.c.m.m.UserMapper.selectByPrimaryKey  : ==>  Preparing: select id, account_id, name, bio, token, avatar_url, gmt_create, gmt_modified, is_valid from user where id = ?
+2022-08-30 13:38:15.095 DEBUG 43780 --- [http-nio-8080-exec-1] c.y.c.m.m.UserMapper.selectByPrimaryKey  : ==> Parameters: 5(Long)
+2022-08-30 13:38:15.097 DEBUG 43780 --- [http-nio-8080-exec-1] c.y.c.m.m.UserMapper.selectByPrimaryKey  : <==      Total: 1
+2022-08-30 13:38:15.099 DEBUG 43780 --- [http-nio-8080-exec-1] c.y.c.m.m.UserMapper.selectByPrimaryKey  : ==>  Preparing: select id, account_id, name, bio, token, avatar_url, gmt_create, gmt_modified, is_valid from user where id = ?
+2022-08-30 13:38:15.099 DEBUG 43780 --- [http-nio-8080-exec-1] c.y.c.m.m.UserMapper.selectByPrimaryKey  : ==> Parameters: 4(Long)
+2022-08-30 13:38:15.101 DEBUG 43780 --- [http-nio-8080-exec-1] c.y.c.m.m.UserMapper.selectByPrimaryKey  : <==      Total: 1
+2022-08-30 13:38:15.102 DEBUG 43780 --- [http-nio-8080-exec-1] c.y.c.m.m.UserMapper.selectByPrimaryKey  : ==>  Preparing: select id, account_id, name, bio, token, avatar_url, gmt_create, gmt_modified, is_valid from user where id = ?
+2022-08-30 13:38:15.103 DEBUG 43780 --- [http-nio-8080-exec-1] c.y.c.m.m.UserMapper.selectByPrimaryKey  : ==> Parameters: 4(Long)
+2022-08-30 13:38:15.105 DEBUG 43780 --- [http-nio-8080-exec-1] c.y.c.m.m.UserMapper.selectByPrimaryKey  : <==      Total: 1
+2022-08-30 13:38:15.222 DEBUG 43780 --- [http-nio-8080-exec-3] c.y.c.m.m.UserMapper.selectByExample     : ==>  Preparing: select id, account_id, name, bio, token, avatar_url, gmt_create, gmt_modified, is_valid from user WHERE ( token = ? )
+2022-08-30 13:38:15.224 DEBUG 43780 --- [http-nio-8080-exec-4] c.y.c.m.m.UserMapper.selectByExample     : ==>  Preparing: select id, account_id, name, bio, token, avatar_url, gmt_create, gmt_modified, is_valid from user WHERE ( token = ? )
+2022-08-30 13:38:15.224 DEBUG 43780 --- [http-nio-8080-exec-6] c.y.c.m.m.UserMapper.selectByExample     : ==>  Preparing: select id, account_id, name, bio, token, avatar_url, gmt_create, gmt_modified, is_valid from user WHERE ( token = ? )
+2022-08-30 13:38:15.224 DEBUG 43780 --- [http-nio-8080-exec-9] c.y.c.m.m.UserMapper.selectByExample     : ==>  Preparing: select id, account_id, name, bio, token, avatar_url, gmt_create, gmt_modified, is_valid from user WHERE ( token = ? )
+2022-08-30 13:38:15.224 DEBUG 43780 --- [http-nio-8080-exec-4] c.y.c.m.m.UserMapper.selectByExample     : ==> Parameters: 89c04534-4e90-4348-8f7d-96627c75c099(String)
+2022-08-30 13:38:15.224 DEBUG 43780 --- [http-nio-8080-exec-6] c.y.c.m.m.UserMapper.selectByExample     : ==> Parameters: 89c04534-4e90-4348-8f7d-96627c75c099(String)
+2022-08-30 13:38:15.224 DEBUG 43780 --- [http-nio-8080-exec-3] c.y.c.m.m.UserMapper.selectByExample     : ==> Parameters: 89c04534-4e90-4348-8f7d-96627c75c099(String)
+2022-08-30 13:38:15.225 DEBUG 43780 --- [http-nio-8080-exec-9] c.y.c.m.m.UserMapper.selectByExample     : ==> Parameters: 89c04534-4e90-4348-8f7d-96627c75c099(String)
+2022-08-30 13:38:15.225 DEBUG 43780 --- [http-nio-8080-exec-5] c.y.c.m.m.UserMapper.selectByExample     : ==>  Preparing: select id, account_id, name, bio, token, avatar_url, gmt_create, gmt_modified, is_valid from user WHERE ( token = ? )
+2022-08-30 13:38:15.226 DEBUG 43780 --- [http-nio-8080-exec-5] c.y.c.m.m.UserMapper.selectByExample     : ==> Parameters: 89c04534-4e90-4348-8f7d-96627c75c099(String)
+2022-08-30 13:38:15.226 DEBUG 43780 --- [http-nio-8080-exec-6] c.y.c.m.m.UserMapper.selectByExample     : <==      Total: 1
+2022-08-30 13:38:15.227 DEBUG 43780 --- [http-nio-8080-exec-4] c.y.c.m.m.UserMapper.selectByExample     : <==      Total: 1
+2022-08-30 13:38:15.227 DEBUG 43780 --- [http-nio-8080-exec-3] c.y.c.m.m.UserMapper.selectByExample     : <==      Total: 1
+2022-08-30 13:38:15.227 DEBUG 43780 --- [http-nio-8080-exec-9] c.y.c.m.m.UserMapper.selectByExample     : <==      Total: 1
+2022-08-30 13:38:15.228 DEBUG 43780 --- [http-nio-8080-exec-6] c.y.c.m.m.N.countByExample               : ==>  Preparing: select count(*) from notification WHERE ( receiver = ? and status = ? )
+2022-08-30 13:38:15.228 DEBUG 43780 --- [http-nio-8080-exec-5] c.y.c.m.m.UserMapper.selectByExample     : <==      Total: 1
+2022-08-30 13:38:15.229 DEBUG 43780 --- [http-nio-8080-exec-4] c.y.c.m.m.N.countByExample               : ==>  Preparing: select count(*) from notification WHERE ( receiver = ? and status = ? )
+2022-08-30 13:38:15.229 DEBUG 43780 --- [http-nio-8080-exec-6] c.y.c.m.m.N.countByExample               : ==> Parameters: 4(Long), 0(Integer)
+2022-08-30 13:38:15.229 DEBUG 43780 --- [http-nio-8080-exec-4] c.y.c.m.m.N.countByExample               : ==> Parameters: 4(Long), 0(Integer)
+2022-08-30 13:38:15.230 DEBUG 43780 --- [http-nio-8080-exec-9] c.y.c.m.m.N.countByExample               : ==>  Preparing: select count(*) from notification WHERE ( receiver = ? and status = ? )
+2022-08-30 13:38:15.230 DEBUG 43780 --- [http-nio-8080-exec-5] c.y.c.m.m.N.countByExample               : ==>  Preparing: select count(*) from notification WHERE ( receiver = ? and status = ? )
+2022-08-30 13:38:15.231 DEBUG 43780 --- [http-nio-8080-exec-3] c.y.c.m.m.N.countByExample               : ==>  Preparing: select count(*) from notification WHERE ( receiver = ? and status = ? )
+2022-08-30 13:38:15.231 DEBUG 43780 --- [http-nio-8080-exec-9] c.y.c.m.m.N.countByExample               : ==> Parameters: 4(Long), 0(Integer)
+2022-08-30 13:38:15.231 DEBUG 43780 --- [http-nio-8080-exec-5] c.y.c.m.m.N.countByExample               : ==> Parameters: 4(Long), 0(Integer)
+2022-08-30 13:38:15.231 DEBUG 43780 --- [http-nio-8080-exec-6] c.y.c.m.m.N.countByExample               : <==      Total: 1
+2022-08-30 13:38:15.231 DEBUG 43780 --- [http-nio-8080-exec-4] c.y.c.m.m.N.countByExample               : <==      Total: 1
+2022-08-30 13:38:15.231 DEBUG 43780 --- [http-nio-8080-exec-3] c.y.c.m.m.N.countByExample               : ==> Parameters: 4(Long), 0(Integer)
+2022-08-30 13:38:15.232 DEBUG 43780 --- [http-nio-8080-exec-9] c.y.c.m.m.N.countByExample               : <==      Total: 1
+2022-08-30 13:38:15.233 DEBUG 43780 --- [http-nio-8080-exec-6] c.y.c.m.m.MessageMapper.countByExample   : ==>  Preparing: select count(*) from message WHERE ( receiver = ? and status = ? )
+2022-08-30 13:38:15.233 DEBUG 43780 --- [http-nio-8080-exec-5] c.y.c.m.m.N.countByExample               : <==      Total: 1
+2022-08-30 13:38:15.233 DEBUG 43780 --- [http-nio-8080-exec-6] c.y.c.m.m.MessageMapper.countByExample   : ==> Parameters: 4(Long), 0(Integer)
+2022-08-30 13:38:15.233 DEBUG 43780 --- [http-nio-8080-exec-4] c.y.c.m.m.MessageMapper.countByExample   : ==>  Preparing: select count(*) from message WHERE ( receiver = ? and status = ? )
+2022-08-30 13:38:15.234 DEBUG 43780 --- [http-nio-8080-exec-4] c.y.c.m.m.MessageMapper.countByExample   : ==> Parameters: 4(Long), 0(Integer)
+2022-08-30 13:38:15.234 DEBUG 43780 --- [http-nio-8080-exec-3] c.y.c.m.m.N.countByExample               : <==      Total: 1
+2022-08-30 13:38:15.235 DEBUG 43780 --- [http-nio-8080-exec-6] c.y.c.m.m.MessageMapper.countByExample   : <==      Total: 1
+2022-08-30 13:38:15.236 DEBUG 43780 --- [http-nio-8080-exec-4] c.y.c.m.m.MessageMapper.countByExample   : <==      Total: 1
+2022-08-30 13:38:15.236 DEBUG 43780 --- [http-nio-8080-exec-5] c.y.c.m.m.MessageMapper.countByExample   : ==>  Preparing: select count(*) from message WHERE ( receiver = ? and status = ? )
+2022-08-30 13:38:15.236 DEBUG 43780 --- [http-nio-8080-exec-3] c.y.c.m.m.MessageMapper.countByExample   : ==>  Preparing: select count(*) from message WHERE ( receiver = ? and status = ? )
+2022-08-30 13:38:15.236 DEBUG 43780 --- [http-nio-8080-exec-9] c.y.c.m.m.MessageMapper.countByExample   : ==>  Preparing: select count(*) from message WHERE ( receiver = ? and status = ? )
+2022-08-30 13:38:15.237 DEBUG 43780 --- [http-nio-8080-exec-3] c.y.c.m.m.MessageMapper.countByExample   : ==> Parameters: 4(Long), 0(Integer)
+2022-08-30 13:38:15.237 DEBUG 43780 --- [http-nio-8080-exec-5] c.y.c.m.m.MessageMapper.countByExample   : ==> Parameters: 4(Long), 0(Integer)
+2022-08-30 13:38:15.237 DEBUG 43780 --- [http-nio-8080-exec-9] c.y.c.m.m.MessageMapper.countByExample   : ==> Parameters: 4(Long), 0(Integer)
+2022-08-30 13:38:15.239 DEBUG 43780 --- [http-nio-8080-exec-9] c.y.c.m.m.MessageMapper.countByExample   : <==      Total: 1
+2022-08-30 13:38:15.239 DEBUG 43780 --- [http-nio-8080-exec-5] c.y.c.m.m.MessageMapper.countByExample   : <==      Total: 1
+2022-08-30 13:38:15.239 DEBUG 43780 --- [http-nio-8080-exec-3] c.y.c.m.m.MessageMapper.countByExample   : <==      Total: 1
+2022-08-30 13:38:15.608 DEBUG 43780 --- [http-nio-8080-exec-7] c.y.c.m.m.UserMapper.selectByExample     : ==>  Preparing: select id, account_id, name, bio, token, avatar_url, gmt_create, gmt_modified, is_valid from user WHERE ( token = ? )
+2022-08-30 13:38:15.609 DEBUG 43780 --- [http-nio-8080-exec-7] c.y.c.m.m.UserMapper.selectByExample     : ==> Parameters: 89c04534-4e90-4348-8f7d-96627c75c099(String)
+2022-08-30 13:38:15.611 DEBUG 43780 --- [http-nio-8080-exec-7] c.y.c.m.m.UserMapper.selectByExample     : <==      Total: 1
+2022-08-30 13:38:15.612 DEBUG 43780 --- [http-nio-8080-exec-7] c.y.c.m.m.N.countByExample               : ==>  Preparing: select count(*) from notification WHERE ( receiver = ? and status = ? )
+2022-08-30 13:38:15.613 DEBUG 43780 --- [http-nio-8080-exec-7] c.y.c.m.m.N.countByExample               : ==> Parameters: 4(Long), 0(Integer)
+2022-08-30 13:38:15.614 DEBUG 43780 --- [http-nio-8080-exec-7] c.y.c.m.m.N.countByExample               : <==      Total: 1
+2022-08-30 13:38:15.616 DEBUG 43780 --- [http-nio-8080-exec-7] c.y.c.m.m.MessageMapper.countByExample   : ==>  Preparing: select count(*) from message WHERE ( receiver = ? and status = ? )
+2022-08-30 13:38:15.617 DEBUG 43780 --- [http-nio-8080-exec-7] c.y.c.m.m.MessageMapper.countByExample   : ==> Parameters: 4(Long), 0(Integer)
+2022-08-30 13:38:15.618 DEBUG 43780 --- [http-nio-8080-exec-7] c.y.c.m.m.MessageMapper.countByExample   : <==      Total: 1
+2022-08-30 13:40:10.764  INFO 44948 --- [restartedMain] c.y.c.m.MyCommunityApplication           : Starting MyCommunityApplication on LAPTOP-N7A9SVGH with PID 44948 (D:\myfile\Java\MyCommunity\target\classes started by yyw in D:\myfile\Java\MyCommunity)
+2022-08-30 13:40:10.767  INFO 44948 --- [restartedMain] c.y.c.m.MyCommunityApplication           : No active profile set, falling back to default profiles: default
+2022-08-30 13:40:10.848  INFO 44948 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-08-30 13:40:10.849  INFO 44948 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-08-30 13:40:13.193  INFO 44948 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-08-30 13:40:13.235  INFO 44948 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-08-30 13:40:13.236  INFO 44948 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.41]
+2022-08-30 13:40:13.615  INFO 44948 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-08-30 13:40:13.616  INFO 44948 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2765 ms
+2022-08-30 13:40:14.954  INFO 44948 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2022-08-30 13:40:15.125  INFO 44948 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2022-08-30 13:40:15.723  INFO 44948 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-08-30 13:40:15.856  INFO 44948 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-08-30 13:40:15.887  INFO 44948 --- [restartedMain] c.y.c.m.MyCommunityApplication           : Started MyCommunityApplication in 5.65 seconds (JVM running for 7.821)
+2022-08-30 13:40:45.881  INFO 44948 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-08-30 13:40:45.882  INFO 44948 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-08-30 13:40:45.896  INFO 44948 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 13 ms
+2022-08-30 13:40:46.020  INFO 44948 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-08-30 13:40:47.178  INFO 44948 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-08-30 13:40:47.194 DEBUG 44948 --- [http-nio-8080-exec-1] c.y.c.m.m.PostExtMapper.countBySearch    : ==>  Preparing: select count(*) from post
+2022-08-30 13:40:47.233 DEBUG 44948 --- [http-nio-8080-exec-1] c.y.c.m.m.PostExtMapper.countBySearch    : ==> Parameters: 
+2022-08-30 13:40:47.265 DEBUG 44948 --- [http-nio-8080-exec-1] c.y.c.m.m.PostExtMapper.countBySearch    : <==      Total: 1
+2022-08-30 13:40:47.274 DEBUG 44948 --- [http-nio-8080-exec-1] c.y.c.m.m.PostExtMapper.selectBySearch   : ==>  Preparing: select * from post order by gmt_create desc limit ?, ?
+2022-08-30 13:40:47.275 DEBUG 44948 --- [http-nio-8080-exec-1] c.y.c.m.m.PostExtMapper.selectBySearch   : ==> Parameters: 0(Integer), 5(Integer)
+2022-08-30 13:40:47.283 DEBUG 44948 --- [http-nio-8080-exec-1] c.y.c.m.m.PostExtMapper.selectBySearch   : <==      Total: 5
+2022-08-30 13:40:47.285 DEBUG 44948 --- [http-nio-8080-exec-1] c.y.c.m.m.UserMapper.selectByPrimaryKey  : ==>  Preparing: select id, account_id, name, bio, token, avatar_url, gmt_create, gmt_modified, is_valid from user where id = ?
+2022-08-30 13:40:47.286 DEBUG 44948 --- [http-nio-8080-exec-1] c.y.c.m.m.UserMapper.selectByPrimaryKey  : ==> Parameters: 4(Long)
+2022-08-30 13:40:47.294 DEBUG 44948 --- [http-nio-8080-exec-1] c.y.c.m.m.UserMapper.selectByPrimaryKey  : <==      Total: 1
+2022-08-30 13:40:47.316 DEBUG 44948 --- [http-nio-8080-exec-1] c.y.c.m.m.UserMapper.selectByPrimaryKey  : ==>  Preparing: select id, account_id, name, bio, token, avatar_url, gmt_create, gmt_modified, is_valid from user where id = ?
+2022-08-30 13:40:47.317 DEBUG 44948 --- [http-nio-8080-exec-1] c.y.c.m.m.UserMapper.selectByPrimaryKey  : ==> Parameters: 5(Long)
+2022-08-30 13:40:47.319 DEBUG 44948 --- [http-nio-8080-exec-1] c.y.c.m.m.UserMapper.selectByPrimaryKey  : <==      Total: 1
+2022-08-30 13:40:47.320 DEBUG 44948 --- [http-nio-8080-exec-1] c.y.c.m.m.UserMapper.selectByPrimaryKey  : ==>  Preparing: select id, account_id, name, bio, token, avatar_url, gmt_create, gmt_modified, is_valid from user where id = ?
+2022-08-30 13:40:47.321 DEBUG 44948 --- [http-nio-8080-exec-1] c.y.c.m.m.UserMapper.selectByPrimaryKey  : ==> Parameters: 5(Long)
+2022-08-30 13:40:47.324 DEBUG 44948 --- [http-nio-8080-exec-1] c.y.c.m.m.UserMapper.selectByPrimaryKey  : <==      Total: 1
+2022-08-30 13:40:47.325 DEBUG 44948 --- [http-nio-8080-exec-1] c.y.c.m.m.UserMapper.selectByPrimaryKey  : ==>  Preparing: select id, account_id, name, bio, token, avatar_url, gmt_create, gmt_modified, is_valid from user where id = ?
+2022-08-30 13:40:47.326 DEBUG 44948 --- [http-nio-8080-exec-1] c.y.c.m.m.UserMapper.selectByPrimaryKey  : ==> Parameters: 4(Long)
+2022-08-30 13:40:47.330 DEBUG 44948 --- [http-nio-8080-exec-1] c.y.c.m.m.UserMapper.selectByPrimaryKey  : <==      Total: 1
+2022-08-30 13:40:47.332 DEBUG 44948 --- [http-nio-8080-exec-1] c.y.c.m.m.UserMapper.selectByPrimaryKey  : ==>  Preparing: select id, account_id, name, bio, token, avatar_url, gmt_create, gmt_modified, is_valid from user where id = ?
+2022-08-30 13:40:47.333 DEBUG 44948 --- [http-nio-8080-exec-1] c.y.c.m.m.UserMapper.selectByPrimaryKey  : ==> Parameters: 4(Long)
+2022-08-30 13:40:47.335 DEBUG 44948 --- [http-nio-8080-exec-1] c.y.c.m.m.UserMapper.selectByPrimaryKey  : <==      Total: 1
+2022-08-30 13:41:04.534 DEBUG 44948 --- [http-nio-8080-exec-9] c.y.c.m.m.UserMapper.selectByExample     : ==>  Preparing: select id, account_id, name, bio, token, avatar_url, gmt_create, gmt_modified, is_valid from user WHERE ( account_id = ? )
+2022-08-30 13:41:04.536 DEBUG 44948 --- [http-nio-8080-exec-9] c.y.c.m.m.UserMapper.selectByExample     : ==> Parameters: 84451807(String)
+2022-08-30 13:41:04.539 DEBUG 44948 --- [http-nio-8080-exec-9] c.y.c.m.m.UserMapper.selectByExample     : <==      Total: 1
+2022-08-30 13:41:04.552 DEBUG 44948 --- [http-nio-8080-exec-9] c.y.c.m.m.U.updateByExampleSelective     : ==>  Preparing: update user SET name = ?, bio = ?, token = ?, avatar_url = ?, gmt_modified = ?, is_valid = ? WHERE ( id = ? )
+2022-08-30 13:41:04.553 DEBUG 44948 --- [http-nio-8080-exec-9] c.y.c.m.m.U.updateByExampleSelective     : ==> Parameters: Dantence(String), Keep coding!(String), 5ebfa55a-af3e-4020-97a0-2b36e3f0fa5c(String), https://avatars.githubusercontent.com/u/84451807?v=4(String), 1661838064540(Long), 1(Integer), 4(Long)
+2022-08-30 13:41:04.559 DEBUG 44948 --- [http-nio-8080-exec-9] c.y.c.m.m.U.updateByExampleSelective     : <==    Updates: 1
+2022-08-30 13:41:04.669 DEBUG 44948 --- [http-nio-8080-exec-10] c.y.c.m.m.UserMapper.selectByExample     : ==>  Preparing: select id, account_id, name, bio, token, avatar_url, gmt_create, gmt_modified, is_valid from user WHERE ( token = ? )
+2022-08-30 13:41:04.670 DEBUG 44948 --- [http-nio-8080-exec-10] c.y.c.m.m.UserMapper.selectByExample     : ==> Parameters: 5ebfa55a-af3e-4020-97a0-2b36e3f0fa5c(String)
+2022-08-30 13:41:04.672 DEBUG 44948 --- [http-nio-8080-exec-10] c.y.c.m.m.UserMapper.selectByExample     : <==      Total: 1
+2022-08-30 13:41:04.827  WARN 44948 --- [http-nio-8080-exec-10] o.a.c.util.SessionIdGeneratorBase        : Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [148] milliseconds.
+2022-08-30 13:41:04.843 DEBUG 44948 --- [http-nio-8080-exec-10] c.y.c.m.m.N.countByExample               : ==>  Preparing: select count(*) from notification WHERE ( receiver = ? and status = ? )
+2022-08-30 13:41:04.844 DEBUG 44948 --- [http-nio-8080-exec-10] c.y.c.m.m.N.countByExample               : ==> Parameters: 4(Long), 0(Integer)
+2022-08-30 13:41:04.855 DEBUG 44948 --- [http-nio-8080-exec-10] c.y.c.m.m.N.countByExample               : <==      Total: 1
+2022-08-30 13:41:04.867 DEBUG 44948 --- [http-nio-8080-exec-10] c.y.c.m.m.MessageMapper.countByExample   : ==>  Preparing: select count(*) from message WHERE ( receiver = ? and status = ? )
+2022-08-30 13:41:04.868 DEBUG 44948 --- [http-nio-8080-exec-10] c.y.c.m.m.MessageMapper.countByExample   : ==> Parameters: 4(Long), 0(Integer)
+2022-08-30 13:41:04.878 DEBUG 44948 --- [http-nio-8080-exec-10] c.y.c.m.m.MessageMapper.countByExample   : <==      Total: 1
+2022-08-30 13:41:04.880 DEBUG 44948 --- [http-nio-8080-exec-10] c.y.c.m.m.PostExtMapper.countBySearch    : ==>  Preparing: select count(*) from post
+2022-08-30 13:41:04.881 DEBUG 44948 --- [http-nio-8080-exec-10] c.y.c.m.m.PostExtMapper.countBySearch    : ==> Parameters: 
+2022-08-30 13:41:04.883 DEBUG 44948 --- [http-nio-8080-exec-10] c.y.c.m.m.PostExtMapper.countBySearch    : <==      Total: 1
+2022-08-30 13:41:04.884 DEBUG 44948 --- [http-nio-8080-exec-10] c.y.c.m.m.PostExtMapper.selectBySearch   : ==>  Preparing: select * from post order by gmt_create desc limit ?, ?
+2022-08-30 13:41:04.885 DEBUG 44948 --- [http-nio-8080-exec-10] c.y.c.m.m.PostExtMapper.selectBySearch   : ==> Parameters: 0(Integer), 5(Integer)
+2022-08-30 13:41:04.891 DEBUG 44948 --- [http-nio-8080-exec-10] c.y.c.m.m.PostExtMapper.selectBySearch   : <==      Total: 5
+2022-08-30 13:41:04.892 DEBUG 44948 --- [http-nio-8080-exec-10] c.y.c.m.m.UserMapper.selectByPrimaryKey  : ==>  Preparing: select id, account_id, name, bio, token, avatar_url, gmt_create, gmt_modified, is_valid from user where id = ?
+2022-08-30 13:41:04.893 DEBUG 44948 --- [http-nio-8080-exec-10] c.y.c.m.m.UserMapper.selectByPrimaryKey  : ==> Parameters: 4(Long)
+2022-08-30 13:41:04.896 DEBUG 44948 --- [http-nio-8080-exec-10] c.y.c.m.m.UserMapper.selectByPrimaryKey  : <==      Total: 1
+2022-08-30 13:41:04.897 DEBUG 44948 --- [http-nio-8080-exec-10] c.y.c.m.m.UserMapper.selectByPrimaryKey  : ==>  Preparing: select id, account_id, name, bio, token, avatar_url, gmt_create, gmt_modified, is_valid from user where id = ?
+2022-08-30 13:41:04.900 DEBUG 44948 --- [http-nio-8080-exec-10] c.y.c.m.m.UserMapper.selectByPrimaryKey  : ==> Parameters: 5(Long)
+2022-08-30 13:41:04.903 DEBUG 44948 --- [http-nio-8080-exec-10] c.y.c.m.m.UserMapper.selectByPrimaryKey  : <==      Total: 1
+2022-08-30 13:41:04.906 DEBUG 44948 --- [http-nio-8080-exec-10] c.y.c.m.m.UserMapper.selectByPrimaryKey  : ==>  Preparing: select id, account_id, name, bio, token, avatar_url, gmt_create, gmt_modified, is_valid from user where id = ?
+2022-08-30 13:41:04.907 DEBUG 44948 --- [http-nio-8080-exec-10] c.y.c.m.m.UserMapper.selectByPrimaryKey  : ==> Parameters: 5(Long)
+2022-08-30 13:41:04.911 DEBUG 44948 --- [http-nio-8080-exec-10] c.y.c.m.m.UserMapper.selectByPrimaryKey  : <==      Total: 1
+2022-08-30 13:41:04.914 DEBUG 44948 --- [http-nio-8080-exec-10] c.y.c.m.m.UserMapper.selectByPrimaryKey  : ==>  Preparing: select id, account_id, name, bio, token, avatar_url, gmt_create, gmt_modified, is_valid from user where id = ?
+2022-08-30 13:41:04.915 DEBUG 44948 --- [http-nio-8080-exec-10] c.y.c.m.m.UserMapper.selectByPrimaryKey  : ==> Parameters: 4(Long)
+2022-08-30 13:41:04.918 DEBUG 44948 --- [http-nio-8080-exec-10] c.y.c.m.m.UserMapper.selectByPrimaryKey  : <==      Total: 1
+2022-08-30 13:41:04.919 DEBUG 44948 --- [http-nio-8080-exec-10] c.y.c.m.m.UserMapper.selectByPrimaryKey  : ==>  Preparing: select id, account_id, name, bio, token, avatar_url, gmt_create, gmt_modified, is_valid from user where id = ?
+2022-08-30 13:41:04.920 DEBUG 44948 --- [http-nio-8080-exec-10] c.y.c.m.m.UserMapper.selectByPrimaryKey  : ==> Parameters: 4(Long)
+2022-08-30 13:41:04.922 DEBUG 44948 --- [http-nio-8080-exec-10] c.y.c.m.m.UserMapper.selectByPrimaryKey  : <==      Total: 1
+2022-08-30 13:41:05.015 DEBUG 44948 --- [http-nio-8080-exec-1] c.y.c.m.m.UserMapper.selectByExample     : ==>  Preparing: select id, account_id, name, bio, token, avatar_url, gmt_create, gmt_modified, is_valid from user WHERE ( token = ? )
+2022-08-30 13:41:05.017 DEBUG 44948 --- [http-nio-8080-exec-1] c.y.c.m.m.UserMapper.selectByExample     : ==> Parameters: 5ebfa55a-af3e-4020-97a0-2b36e3f0fa5c(String)
+2022-08-30 13:41:05.019 DEBUG 44948 --- [http-nio-8080-exec-4] c.y.c.m.m.UserMapper.selectByExample     : ==>  Preparing: select id, account_id, name, bio, token, avatar_url, gmt_create, gmt_modified, is_valid from user WHERE ( token = ? )
+2022-08-30 13:41:05.019 DEBUG 44948 --- [http-nio-8080-exec-2] c.y.c.m.m.UserMapper.selectByExample     : ==>  Preparing: select id, account_id, name, bio, token, avatar_url, gmt_create, gmt_modified, is_valid from user WHERE ( token = ? )
+2022-08-30 13:41:05.020 DEBUG 44948 --- [http-nio-8080-exec-5] c.y.c.m.m.UserMapper.selectByExample     : ==>  Preparing: select id, account_id, name, bio, token, avatar_url, gmt_create, gmt_modified, is_valid from user WHERE ( token = ? )
+2022-08-30 13:41:05.020 DEBUG 44948 --- [http-nio-8080-exec-2] c.y.c.m.m.UserMapper.selectByExample     : ==> Parameters: 5ebfa55a-af3e-4020-97a0-2b36e3f0fa5c(String)
+2022-08-30 13:41:05.020 DEBUG 44948 --- [http-nio-8080-exec-5] c.y.c.m.m.UserMapper.selectByExample     : ==> Parameters: 5ebfa55a-af3e-4020-97a0-2b36e3f0fa5c(String)
+2022-08-30 13:41:05.020 DEBUG 44948 --- [http-nio-8080-exec-4] c.y.c.m.m.UserMapper.selectByExample     : ==> Parameters: 5ebfa55a-af3e-4020-97a0-2b36e3f0fa5c(String)
+2022-08-30 13:41:05.021 DEBUG 44948 --- [http-nio-8080-exec-1] c.y.c.m.m.UserMapper.selectByExample     : <==      Total: 1
+2022-08-30 13:41:05.022 DEBUG 44948 --- [http-nio-8080-exec-6] c.y.c.m.m.UserMapper.selectByExample     : ==>  Preparing: select id, account_id, name, bio, token, avatar_url, gmt_create, gmt_modified, is_valid from user WHERE ( token = ? )
+2022-08-30 13:41:05.023 DEBUG 44948 --- [http-nio-8080-exec-6] c.y.c.m.m.UserMapper.selectByExample     : ==> Parameters: 5ebfa55a-af3e-4020-97a0-2b36e3f0fa5c(String)
+2022-08-30 13:41:05.023 DEBUG 44948 --- [http-nio-8080-exec-1] c.y.c.m.m.N.countByExample               : ==>  Preparing: select count(*) from notification WHERE ( receiver = ? and status = ? )
+2022-08-30 13:41:05.024 DEBUG 44948 --- [http-nio-8080-exec-4] c.y.c.m.m.UserMapper.selectByExample     : <==      Total: 1
+2022-08-30 13:41:05.024 DEBUG 44948 --- [http-nio-8080-exec-1] c.y.c.m.m.N.countByExample               : ==> Parameters: 4(Long), 0(Integer)
+2022-08-30 13:41:05.027 DEBUG 44948 --- [http-nio-8080-exec-1] c.y.c.m.m.N.countByExample               : <==      Total: 1
+2022-08-30 13:41:05.028 DEBUG 44948 --- [http-nio-8080-exec-4] c.y.c.m.m.N.countByExample               : ==>  Preparing: select count(*) from notification WHERE ( receiver = ? and status = ? )
+2022-08-30 13:41:05.030 DEBUG 44948 --- [http-nio-8080-exec-1] c.y.c.m.m.MessageMapper.countByExample   : ==>  Preparing: select count(*) from message WHERE ( receiver = ? and status = ? )
+2022-08-30 13:41:05.030 DEBUG 44948 --- [http-nio-8080-exec-4] c.y.c.m.m.N.countByExample               : ==> Parameters: 4(Long), 0(Integer)
+2022-08-30 13:41:05.031 DEBUG 44948 --- [http-nio-8080-exec-1] c.y.c.m.m.MessageMapper.countByExample   : ==> Parameters: 4(Long), 0(Integer)
+2022-08-30 13:41:05.033 DEBUG 44948 --- [http-nio-8080-exec-1] c.y.c.m.m.MessageMapper.countByExample   : <==      Total: 1
+2022-08-30 13:41:05.041 DEBUG 44948 --- [http-nio-8080-exec-2] c.y.c.m.m.UserMapper.selectByExample     : <==      Total: 1
+2022-08-30 13:41:05.045 DEBUG 44948 --- [http-nio-8080-exec-2] c.y.c.m.m.N.countByExample               : ==>  Preparing: select count(*) from notification WHERE ( receiver = ? and status = ? )
+2022-08-30 13:41:05.047 DEBUG 44948 --- [http-nio-8080-exec-2] c.y.c.m.m.N.countByExample               : ==> Parameters: 4(Long), 0(Integer)
+2022-08-30 13:41:05.051 DEBUG 44948 --- [http-nio-8080-exec-6] c.y.c.m.m.UserMapper.selectByExample     : <==      Total: 1
+2022-08-30 13:41:05.051 DEBUG 44948 --- [http-nio-8080-exec-5] c.y.c.m.m.UserMapper.selectByExample     : <==      Total: 1
+2022-08-30 13:41:05.052 DEBUG 44948 --- [http-nio-8080-exec-4] c.y.c.m.m.N.countByExample               : <==      Total: 1
+2022-08-30 13:41:05.054 DEBUG 44948 --- [http-nio-8080-exec-5] c.y.c.m.m.N.countByExample               : ==>  Preparing: select count(*) from notification WHERE ( receiver = ? and status = ? )
+2022-08-30 13:41:05.054 DEBUG 44948 --- [http-nio-8080-exec-6] c.y.c.m.m.N.countByExample               : ==>  Preparing: select count(*) from notification WHERE ( receiver = ? and status = ? )
+2022-08-30 13:41:05.055 DEBUG 44948 --- [http-nio-8080-exec-6] c.y.c.m.m.N.countByExample               : ==> Parameters: 4(Long), 0(Integer)
+2022-08-30 13:41:05.055 DEBUG 44948 --- [http-nio-8080-exec-4] c.y.c.m.m.MessageMapper.countByExample   : ==>  Preparing: select count(*) from message WHERE ( receiver = ? and status = ? )
+2022-08-30 13:41:05.055 DEBUG 44948 --- [http-nio-8080-exec-5] c.y.c.m.m.N.countByExample               : ==> Parameters: 4(Long), 0(Integer)
+2022-08-30 13:41:05.056 DEBUG 44948 --- [http-nio-8080-exec-4] c.y.c.m.m.MessageMapper.countByExample   : ==> Parameters: 4(Long), 0(Integer)
+2022-08-30 13:41:05.063 DEBUG 44948 --- [http-nio-8080-exec-2] c.y.c.m.m.N.countByExample               : <==      Total: 1
+2022-08-30 13:41:05.066 DEBUG 44948 --- [http-nio-8080-exec-2] c.y.c.m.m.MessageMapper.countByExample   : ==>  Preparing: select count(*) from message WHERE ( receiver = ? and status = ? )
+2022-08-30 13:41:05.068 DEBUG 44948 --- [http-nio-8080-exec-2] c.y.c.m.m.MessageMapper.countByExample   : ==> Parameters: 4(Long), 0(Integer)
+2022-08-30 13:41:05.071 DEBUG 44948 --- [http-nio-8080-exec-6] c.y.c.m.m.N.countByExample               : <==      Total: 1
+2022-08-30 13:41:05.074 DEBUG 44948 --- [http-nio-8080-exec-6] c.y.c.m.m.MessageMapper.countByExample   : ==>  Preparing: select count(*) from message WHERE ( receiver = ? and status = ? )
+2022-08-30 13:41:05.075 DEBUG 44948 --- [http-nio-8080-exec-6] c.y.c.m.m.MessageMapper.countByExample   : ==> Parameters: 4(Long), 0(Integer)
+2022-08-30 13:41:05.076 DEBUG 44948 --- [http-nio-8080-exec-4] c.y.c.m.m.MessageMapper.countByExample   : <==      Total: 1
+2022-08-30 13:41:05.077 DEBUG 44948 --- [http-nio-8080-exec-5] c.y.c.m.m.N.countByExample               : <==      Total: 1
+2022-08-30 13:41:05.079 DEBUG 44948 --- [http-nio-8080-exec-5] c.y.c.m.m.MessageMapper.countByExample   : ==>  Preparing: select count(*) from message WHERE ( receiver = ? and status = ? )
+2022-08-30 13:41:05.081 DEBUG 44948 --- [http-nio-8080-exec-5] c.y.c.m.m.MessageMapper.countByExample   : ==> Parameters: 4(Long), 0(Integer)
+2022-08-30 13:41:05.085 DEBUG 44948 --- [http-nio-8080-exec-2] c.y.c.m.m.MessageMapper.countByExample   : <==      Total: 1
+2022-08-30 13:41:05.088 DEBUG 44948 --- [http-nio-8080-exec-6] c.y.c.m.m.MessageMapper.countByExample   : <==      Total: 1
+2022-08-30 13:41:05.092 DEBUG 44948 --- [http-nio-8080-exec-5] c.y.c.m.m.MessageMapper.countByExample   : <==      Total: 1
+2022-08-30 13:41:05.247 DEBUG 44948 --- [http-nio-8080-exec-3] c.y.c.m.m.UserMapper.selectByExample     : ==>  Preparing: select id, account_id, name, bio, token, avatar_url, gmt_create, gmt_modified, is_valid from user WHERE ( token = ? )
+2022-08-30 13:41:05.249 DEBUG 44948 --- [http-nio-8080-exec-3] c.y.c.m.m.UserMapper.selectByExample     : ==> Parameters: 5ebfa55a-af3e-4020-97a0-2b36e3f0fa5c(String)
+2022-08-30 13:41:05.252 DEBUG 44948 --- [http-nio-8080-exec-3] c.y.c.m.m.UserMapper.selectByExample     : <==      Total: 1
+2022-08-30 13:41:05.255 DEBUG 44948 --- [http-nio-8080-exec-3] c.y.c.m.m.N.countByExample               : ==>  Preparing: select count(*) from notification WHERE ( receiver = ? and status = ? )
+2022-08-30 13:41:05.256 DEBUG 44948 --- [http-nio-8080-exec-3] c.y.c.m.m.N.countByExample               : ==> Parameters: 4(Long), 0(Integer)
+2022-08-30 13:41:05.257 DEBUG 44948 --- [http-nio-8080-exec-3] c.y.c.m.m.N.countByExample               : <==      Total: 1
+2022-08-30 13:41:05.259 DEBUG 44948 --- [http-nio-8080-exec-3] c.y.c.m.m.MessageMapper.countByExample   : ==>  Preparing: select count(*) from message WHERE ( receiver = ? and status = ? )
+2022-08-30 13:41:05.260 DEBUG 44948 --- [http-nio-8080-exec-3] c.y.c.m.m.MessageMapper.countByExample   : ==> Parameters: 4(Long), 0(Integer)
+2022-08-30 13:41:05.261 DEBUG 44948 --- [http-nio-8080-exec-3] c.y.c.m.m.MessageMapper.countByExample   : <==      Total: 1
