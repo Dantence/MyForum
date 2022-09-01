@@ -36,6 +36,8 @@
         <table tableName="notification" domainObjectName="Notification"></table>
         <table tableName="follow_fan" domainObjectName="FollowFan"></table>
         <table tableName="message" domainObjectName="Message"></table>
+        <table tableName="likes" domainObjectName="Likes"></table>
+        <table tableName="favor" domainObjectName="Favor"></table>
 
     </context>
 </generatorConfiguration>

@@ -17,4 +17,12 @@
         update comment set comment_count = comment_count + #{commentCount, jdbcType=BIGINT} where id = #{id}
     </update>
 
+    <update id="increaseLikesCount" parameterType="com.yyw.community.mycommunity.entity.Comment">
+        update comment set likes_count = likes_count + #{likesCount, jdbcType=BIGINT} where id = #{id}
+    </update>
+
+    <update id="decreaseLikesCount" parameterType="com.yyw.community.mycommunity.entity.Comment">
+        update comment set likes_count = likes_count - #{likesCount, jdbcType=BIGINT} where id = #{id}
+    </update>
+
 </mapper>

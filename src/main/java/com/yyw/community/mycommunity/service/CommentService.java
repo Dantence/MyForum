@@ -134,4 +134,28 @@ public class CommentService {
             return commentDTO;
         }).collect(Collectors.toList());
     }
+
+    public Long like(Long id) {
+        Comment target = commentMapper.selectByPrimaryKey(id);
+        if(target == null){
+            throw new CustomizeException(CustomizeErrorCodeImpl.COMMENT_NOT_FOUND);
+        }
+        Comment comment = new Comment();
+        comment.setId(id);
+        comment.setLikesCount(1L);
+        commentExtMapper.increaseLikesCount(comment);
+        return target.getLikesCount() + 1;
+    }
+
+    public Long unlike(Long id) {
+        Comment target = commentMapper.selectByPrimaryKey(id);
+        if(target == null){
+            throw new CustomizeException(CustomizeErrorCodeImpl.COMMENT_NOT_FOUND);
+        }
+        Comment comment = new Comment();
+        comment.setId(id);
+        comment.setLikesCount(1L);
+        commentExtMapper.decreaseLikesCount(comment);
+        return target.getLikesCount() - 1;
+    }
 }

@@ -6,6 +6,7 @@ import com.yyw.community.mycommunity.exception.CustomizeErrorCodeImpl;
 import com.yyw.community.mycommunity.exception.CustomizeException;
 import com.yyw.community.mycommunity.mapper.PostMapper;
 import com.yyw.community.mycommunity.mapper.UserMapper;
+import com.yyw.community.mycommunity.service.FavorService;
 import com.yyw.community.mycommunity.service.MessageService;
 import com.yyw.community.mycommunity.service.NotificationService;
 import com.yyw.community.mycommunity.service.PostService;
@@ -35,6 +36,9 @@ public class MineController {
     @Autowired
     private MessageService messageService;
 
+    @Autowired
+    private FavorService favorService;
+
     @GetMapping("/mine/{action}")
     public String mine(@PathVariable(name = "action")String action,
                        @RequestParam(name = "page", defaultValue = "1") Integer page,
@@ -59,6 +63,11 @@ public class MineController {
             PaginationDTO<MessageNewDTO> paginationDTO = messageService.list(user.getId(), page, size);
             model.addAttribute("section", "message");
             model.addAttribute("sectionName", "我的私信");
+            model.addAttribute("pagination", paginationDTO);
+        } else if(action.equals("favor")) {
+            PaginationDTO<PostDTO> paginationDTO = favorService.list(user.getId(), page, size);
+            model.addAttribute("section", "favor");
+            model.addAttribute("sectionName", "我的收藏");
             model.addAttribute("pagination", paginationDTO);
         }
         return "mine";

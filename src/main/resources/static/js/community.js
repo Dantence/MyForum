@@ -56,6 +56,43 @@ function getParentId() {
 }
 
 /**
+ * 点赞评论
+ */
+function likeComments(e) {
+    let id = e.getAttribute("data-likeid")
+    $.ajax({
+        type: "GET",
+        url: "/comment/like/" + id,
+        success: function (response) {
+            if (response.code === 200) {
+                let flag = response.data.flag
+                let likesCount = response.data.likesCount
+                let likeElement = $("#" + id);
+                if(flag === 1) {
+                    likeElement.addClass("active")
+                } else {
+                    likeElement.removeClass("active")
+                }
+                $("#likesCount-" + id).html(likesCount)
+            } else {
+                if (response.code === 2003) {
+                    let isAccepted = confirm(response.message);
+                    if (isAccepted) {
+                        window.open("https://github.com/login/oauth/authorize?client_id=87df8eadcb6e3f32612f&redirect_url=http://localhost:8080/callback&scope=user&state=1")
+                        window.localStorage.setItem("close", "1")
+                    }
+                } else {
+                    alert(response.message)
+                }
+            }
+        },
+        dataType: "json"
+    })
+    e.setAttribute("data-liked", "true")
+
+}
+
+/**
  * 展开二级评论
  */
 function collapseComments(e) {
@@ -77,17 +114,17 @@ function collapseComments(e) {
                         "class": "media-body comment-body"
                     }).append($("<h4/>", {
                         "class": "media-heading",
+                    }).append($("<a/>", {
                         "html": comment.user.name,
-                        "href": "/profile/" + comment.user.id
-                    })).append($("<div/>", {
+                        "href": "/profile/" + comment.user.id,
+                        "style" : "text-decoration: none; color: black"
+                    }))).append($("<div/>", {
                         "html": comment.content
                     })).append($("<div/>", {
                         "class": "comment-menu"
                     }).append($("<div/>", {
                         "class": "pull-right",
                         "html": moment(comment.gmtCreate).format('YYYY-MM-DD HH:mm')
-                    })).append($("<span/>", {
-                        "class": "glyphicon glyphicon-thumbs-up comment-icon"
                     })))
 
                     let mediaElement = $("<div/>", {
@@ -136,7 +173,7 @@ function doFollow(e) {
     let follow_id = e.getAttribute("data-follow_id")
     let fan_id = e.getAttribute("data-fan_id");
     let follow_btn = $("#follow-btn")
-    if(follow_btn.hasClass("follow-btn")) {
+    if (follow_btn.hasClass("follow-btn")) {
         $.ajax({
             type: "POST",
             url: "/follow",

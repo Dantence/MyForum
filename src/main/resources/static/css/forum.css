@@ -58,6 +58,11 @@ body {
     margin-bottom: 25px;
 }
 
+.community-menu-active{
+    color: red;
+    margin-bottom: 25px;
+}
+
 .error-page {
     margin: 50px;
 }
@@ -125,11 +130,20 @@ body {
     cursor: pointer;
 }
 
+.comment-menu .like-count-icon {
+    font-size: 16px;
+    cursor: pointer;
+}
+
 .comment-menu .active {
     color: #499ef3;
 }
 
 .comment-menu .comment-count-icon:hover {
+    color: #499ef3;
+}
+
+.comment-menu .like-count-icon:hover {
     color: #499ef3;
 }
 

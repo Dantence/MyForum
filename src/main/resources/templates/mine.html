@@ -69,9 +69,31 @@
                     </div>
                 </div>
             </div>
-<!--            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" th:if="${section == 'message'}">-->
 
-<!--            </div>-->
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" th:if="${section == 'favor'}">
+                <div class="media" th:each="post : ${pagination.data}">
+                    <div class="media-left">
+                        <a href="#">
+                            <img class="media-object img-size" th:src="${post.user.avatarUrl}" alt="...">
+                        </a>
+                    </div>
+                    <div class="media-body">
+                        <h4 class="media-heading">
+                            <a th:href="@{'/post/' + ${post.id}}" th:text="${post.title}"
+                               style="text-decoration: none; color: black"></a>
+                        </h4>
+                        <span class="post-desc">
+                          <span th:text="${post.commentCount}"></span> 个回复
+                          <span th:text="${post.viewCount}"></span> 次浏览
+                          <span th:text="${#dates.format(post.gmtCreate, 'yyyy-MM-dd HH:mm')}"></span>
+                            <a th:href="@{'/unfavor/' +${post.id}}" class="community-menu">
+                            <span class="glyphicon glyphicon-remove" aria-hidden="true">取消收藏</span>
+                          </a>
+                        </span>
+                    </div>
+                </div>
+
+            </div>
 
                 <nav aria-label="Page navigation">
                     <ul class="pagination">
@@ -98,14 +120,14 @@
         </div>
         <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
             <div class="list-group section">
-                <a href="/mine/myposts" class="list-group-item"
-                   th:classappend="${section == 'myposts'} ? 'active' : ''">我发的贴</a>
+                <a href="/mine/myposts" class="list-group-item" th:classappend="${section == 'myposts'} ? 'active' : ''">我发的贴</a>
                 <a href="/mine/reply" class="list-group-item" th:classappend="${section == 'reply'} ? 'active' : ''">我的通知
                     <span class="badge" th:text="${session.unreadNotificationCount}"></span>
                 </a>
                 <a href="/mine/message" class="list-group-item" th:classappend="${section == 'message'} ? 'active' : ''">我的私信
                     <span class="badge" th:text="${session.unreadMessageCount}"></span>
                 </a>
+                <a href="/mine/favor" class="list-group-item" th:classappend="${section == 'favor'} ? 'active' : ''">我的收藏</a>
             </div>
 
         </div>

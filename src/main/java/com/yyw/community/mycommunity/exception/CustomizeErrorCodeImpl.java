@@ -15,7 +15,9 @@ public enum CustomizeErrorCodeImpl implements CustomizeErrorCode {
     CONTENT_EMPTY(2008,"输入内容不能为空!"),
     NOTIFICATION_ERROR(2009, "消息非法访问!"),
     NOTIFICATION_NOT_FOUND(2010, "消息不存在!"),
-    MESSAGE_ERROR(2011,"信息错误")
+    MESSAGE_ERROR(2011,"信息错误"),
+    DUPLICATED_LIKE(2012,"不能重复点赞!")
+
 
     ;
     private final String message;

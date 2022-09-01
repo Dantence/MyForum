@@ -8,4 +8,6 @@ import com.yyw.community.mycommunity.entity.Comment;
  */
 public interface CommentExtMapper {
     int increaseCommentCount(Comment comment);
+    int increaseLikesCount(Comment comment);
+    int decreaseLikesCount(Comment comment);
 }
