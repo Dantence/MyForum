@@ -7,6 +7,7 @@ import com.yyw.community.mycommunity.dto.PostQueryDTO;
 import com.yyw.community.mycommunity.entity.Post;
 import com.yyw.community.mycommunity.entity.PostExample;
 import com.yyw.community.mycommunity.entity.User;
+import com.yyw.community.mycommunity.enums.ActionExp;
 import com.yyw.community.mycommunity.exception.CustomizeErrorCodeImpl;
 import com.yyw.community.mycommunity.exception.CustomizeException;
 import com.yyw.community.mycommunity.mapper.PostExtMapper;
@@ -17,6 +18,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,6 +40,9 @@ public class PostService {
     @Autowired
     private UserMapper userMapper;
 
+    @Autowired
+    private UserService userService;
+
     /**
      * 查出所有的post之后，根据post的publisher查出user，组装成postDTO
      *
@@ -45,7 +50,7 @@ public class PostService {
      * @param size
      * @return
      */
-    public PaginationDTO<PostDTO> list(String search, Integer page, Integer size) {
+    public PaginationDTO<PostDTO> list(String search, String tag, Integer page, Integer size) {
         if(!StringUtils.isNullOrEmpty(search)){
             List<String> keys = StringUtils.split(search, " ", true);
             search = String.join("|", keys);
@@ -53,6 +58,8 @@ public class PostService {
         Integer offset = size * (page - 1);
         PostQueryDTO postQueryDTO = new PostQueryDTO();
         postQueryDTO.setSearch(search);
+        postQueryDTO.setTag(tag);
+
         Integer totalCount = postExtMapper.countBySearch(postQueryDTO);
         postQueryDTO.setPage(offset);
         postQueryDTO.setSize(size);
@@ -110,6 +117,7 @@ public class PostService {
      *
      * @param post
      */
+    @Transactional
     public void handlePublish(Post post) {
         if (post.getId() == null) {
             post.setLikesCount(0L);
@@ -118,6 +126,7 @@ public class PostService {
             post.setGmtCreate(System.currentTimeMillis());
             post.setGmtModified(post.getGmtCreate());
             postMapper.insert(post);
+            userService.updateLevel(ActionExp.PUBLISH.getExp(), post.getPublisher());
         } else {
             Post updatePost = new Post();
             updatePost.setGmtModified(System.currentTimeMillis());

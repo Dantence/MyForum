@@ -19,7 +19,7 @@
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" th:if="${section == 'myposts'}">
                 <div class="media" th:each="post : ${pagination.data}">
                     <div class="media-left">
-                        <a href="#">
+                        <a th:href="@{'/profile/' + ${post.user.id}}">
                             <img class="media-object img-size" th:src="${post.user.avatarUrl}" alt="...">
                         </a>
                     </div>
@@ -29,9 +29,9 @@
                                style="text-decoration: none; color: black"></a>
                         </h4>
                         <span class="post-desc">
-                          <span th:text="${post.commentCount}"></span> 个回复
-                          <span th:text="${post.viewCount}"></span> 次浏览
-                          <span th:text="${#dates.format(post.gmtCreate, 'yyyy-MM-dd HH:mm')}"></span>
+                          <span th:text="${post.commentCount}"></span> 个回复&nbsp;&nbsp;
+                          <span th:text="${post.viewCount}"></span> 次浏览&nbsp;&nbsp;
+                          <span th:text="${#dates.format(post.gmtCreate, 'yyyy-MM-dd HH:mm')}"></span>&nbsp;&nbsp;
                           <a th:if="${session.user != null && session.user.id == post.publisher}"
                            th:href="@{'/publish/' +${post.id}}" class="community-menu">
                             <span class="glyphicon glyphicon-pencil" aria-hidden="true">编辑</span>
@@ -73,7 +73,7 @@
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" th:if="${section == 'favor'}">
                 <div class="media" th:each="post : ${pagination.data}">
                     <div class="media-left">
-                        <a href="#">
+                        <a th:href="@{'/profile/' + ${post.user.id}}">
                             <img class="media-object img-size" th:src="${post.user.avatarUrl}" alt="...">
                         </a>
                     </div>
@@ -83,9 +83,9 @@
                                style="text-decoration: none; color: black"></a>
                         </h4>
                         <span class="post-desc">
-                          <span th:text="${post.commentCount}"></span> 个回复
-                          <span th:text="${post.viewCount}"></span> 次浏览
-                          <span th:text="${#dates.format(post.gmtCreate, 'yyyy-MM-dd HH:mm')}"></span>
+                          <span th:text="${post.commentCount}"></span> 个回复&nbsp;&nbsp;
+                          <span th:text="${post.viewCount}"></span> 次浏览&nbsp;&nbsp;
+                          <span th:text="${#dates.format(post.gmtCreate, 'yyyy-MM-dd HH:mm')}"></span>&nbsp;&nbsp;
                             <a th:href="@{'/unfavor/' +${post.id}}" class="community-menu">
                             <span class="glyphicon glyphicon-remove" aria-hidden="true">取消收藏</span>
                           </a>

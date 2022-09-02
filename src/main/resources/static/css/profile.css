@@ -64,7 +64,7 @@ body{
 }
 
 .card .content .details{
-    padding: 40px;
+    padding: 47px;
     text-align: center;
     width: 100%;
     transition: 0.5s;
@@ -95,7 +95,6 @@ body{
 .card .content .details .data {
     display: flex;
     justify-content: space-between;
-    margin: 20px 0;
 }
 
 .card .content .details .data h3{

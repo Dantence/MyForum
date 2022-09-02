@@ -37,7 +37,7 @@ public class CommentController {
     public Object doComment(@RequestBody CommentCreateDTO commentDTO,
                             HttpServletRequest request) {
         User user = commonUtils.getUserFromSession(request);
-        if (user == null) {
+        if (user == null || user.getIsValid() == 0) {
             return ResultDTO.errorOf(CustomizeErrorCodeImpl.USER_NOT_LOGIN);
         }
         if (commentDTO == null || StringUtils.isNullOrEmpty(commentDTO.getContent())) {

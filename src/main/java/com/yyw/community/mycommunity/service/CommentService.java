@@ -2,6 +2,7 @@ package com.yyw.community.mycommunity.service;
 
 import com.yyw.community.mycommunity.dto.CommentDTO;
 import com.yyw.community.mycommunity.entity.*;
+import com.yyw.community.mycommunity.enums.ActionExp;
 import com.yyw.community.mycommunity.enums.CommentTypeEnum;
 import com.yyw.community.mycommunity.enums.NotificationStatusEnum;
 import com.yyw.community.mycommunity.enums.NotificationTypeEnum;
@@ -42,6 +43,9 @@ public class CommentService {
 
     @Autowired
     private NotificationMapper notificationMapper;
+
+    @Autowired
+    private UserService userService;
 
     @Transactional
     public void insert(Comment comment, User commentator) {
@@ -87,6 +91,7 @@ public class CommentService {
                 createNotification(comment, post.getPublisher(), commentator.getName(), post.getTitle(), NotificationTypeEnum.REPLY_POST, post.getId());
             }
         }
+        userService.updateLevel(ActionExp.COMMENT.getExp(), commentator.getId());
     }
 
     private void createNotification(Comment comment, Long receiver, String notifierName, String outerTitle,

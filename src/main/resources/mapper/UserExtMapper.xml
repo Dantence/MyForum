@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yyw.community.mycommunity.mapper.UserExtMapper">
+  <resultMap id="BaseResultMap" type="com.yyw.community.mycommunity.entity.User">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="account_id" jdbcType="VARCHAR" property="accountId" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="bio" jdbcType="VARCHAR" property="bio" />
+    <result column="token" jdbcType="CHAR" property="token" />
+    <result column="avatar_url" jdbcType="VARCHAR" property="avatarUrl" />
+    <result column="exp" jdbcType="INTEGER" property="exp" />
+    <result column="level" jdbcType="INTEGER" property="level" />
+    <result column="gmt_create" jdbcType="BIGINT" property="gmtCreate" />
+    <result column="gmt_modified" jdbcType="BIGINT" property="gmtModified" />
+    <result column="is_valid" jdbcType="INTEGER" property="isValid" />
+  </resultMap>
+
+  <update id="increaseExp" parameterType="com.yyw.community.mycommunity.entity.User">
+    update user set exp = exp + #{exp, jdbcType=INTEGER} where id = #{id}
+  </update>
+</mapper>

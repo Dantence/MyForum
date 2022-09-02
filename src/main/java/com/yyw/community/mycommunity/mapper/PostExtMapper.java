@@ -14,6 +14,8 @@ import java.util.List;
 public interface PostExtMapper {
     int increaseViewCount(Post post);
     int increaseCommentCount(Post post);
+    int increaseLikesCount(Post post);
+    int decreaseLikesCount(Post post);
     List<Post> selectRelated(Post post);
     Integer countBySearch(PostQueryDTO postQueryDTO);
 

@@ -11,6 +11,9 @@
 </head>
 <body>
 <div th:insert="~{navigation :: nav}"></div>
+
+
+
 <div class="card">
     <div class="imgBx">
         <img th:src="${profile.user.avatarUrl}" alt="">
@@ -18,8 +21,14 @@
     <div class="content">
         <div class="details">
             <h2>
+
                 <span th:text="${profile.user.name}"></span>
                 <br>
+                <span style="background: #EEEEEE" th:text="'LV' + ${profile.user.level}"></span>&nbsp;&nbsp;
+                <span style="font-size: small" th:text="${profile.user.exp} + '/' + ${floorExp}"></span>
+                <p>
+                    <progress style="font-size: small" th:max="${floorExp}" th:value="${profile.user.exp}"></progress>
+                </p>
                 <span th:text="${profile.user.bio}"></span></h2>
             <div class="data">
                 <h3>

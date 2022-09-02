@@ -60,6 +60,7 @@ public class ProfileController {
         profileDTO.setFollowCount(Long.valueOf(followCount));
         model.addAttribute("profile", profileDTO);
         model.addAttribute("isFollowed", isFollowed);
+        model.addAttribute("floorExp", commonUtils.getExpFloor(user.getLevel()));
         return "profile";
     }
 }

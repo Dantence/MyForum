@@ -9,6 +9,7 @@ import lombok.Data;
 @Data
 public class PostQueryDTO {
     private String search;
+    private String tag;
     private Integer page;
     private Integer size;
 }

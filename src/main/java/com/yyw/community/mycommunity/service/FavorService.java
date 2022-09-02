@@ -4,12 +4,14 @@ import com.yyw.community.mycommunity.dto.PaginationDTO;
 import com.yyw.community.mycommunity.dto.PostDTO;
 import com.yyw.community.mycommunity.entity.*;
 import com.yyw.community.mycommunity.mapper.FavorMapper;
+import com.yyw.community.mycommunity.mapper.PostExtMapper;
 import com.yyw.community.mycommunity.mapper.PostMapper;
 import com.yyw.community.mycommunity.mapper.UserMapper;
 import org.apache.ibatis.session.RowBounds;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,6 +29,9 @@ public class FavorService {
     private PostMapper postMapper;
 
     @Autowired
+    private PostExtMapper postExtMapper;
+
+    @Autowired
     private UserMapper userMapper;
 
     public Integer isFavored(Long UserId, Long postId){
@@ -40,17 +45,26 @@ public class FavorService {
         }
     }
 
+    @Transactional
     public int favor(Long userId, Long postId) {
         Favor favor = new Favor();
         favor.setUserId(userId);
         favor.setPostId(postId);
         favor.setGmtCreate(System.currentTimeMillis());
+        Post post = new Post();
+        post.setId(postId);
+        post.setLikesCount(1L);
+        postExtMapper.increaseLikesCount(post);
         return favorMapper.insert(favor);
     }
 
     public int unFavor(Long userId, Long postId) {
         FavorExample favorExample = new FavorExample();
         favorExample.createCriteria().andUserIdEqualTo(userId).andPostIdEqualTo(postId);
+        Post post = new Post();
+        post.setId(postId);
+        post.setLikesCount(1L);
+        postExtMapper.decreaseLikesCount(post);
         return favorMapper.deleteByExample(favorExample);
     }
 

@@ -71,7 +71,7 @@ public class AuthorizeController {
             response.addCookie(new Cookie("token", token));
             return "redirect:/";
         } else {
-            log.error("callbacl get github user error, {}", gitHubUser);
+            log.error("callback get github user error, {}", gitHubUser);
             return "redirect:/";
         }
     }

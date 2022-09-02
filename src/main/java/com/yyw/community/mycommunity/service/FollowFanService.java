@@ -3,10 +3,12 @@ package com.yyw.community.mycommunity.service;
 import com.yyw.community.mycommunity.dto.FollowFanDTO;
 import com.yyw.community.mycommunity.entity.FollowFan;
 import com.yyw.community.mycommunity.entity.FollowFanExample;
+import com.yyw.community.mycommunity.enums.ActionExp;
 import com.yyw.community.mycommunity.mapper.FollowFanExtMapper;
 import com.yyw.community.mycommunity.mapper.FollowFanMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -22,6 +24,10 @@ public class FollowFanService {
     @Autowired
     private FollowFanMapper followFanMapper;
 
+    @Autowired
+    private UserService userService;
+
+    @Transactional
     public Integer insert(FollowFan followFan) {
         FollowFanExample followFanExample = new FollowFanExample();
         followFanExample.createCriteria().andFollowIdEqualTo(followFan.getFollowId()).andFanIdEqualTo(followFan.getFanId());
@@ -33,6 +39,7 @@ public class FollowFanService {
             if (rows != 1) {
                 return 500;
             } else {
+                userService.updateLevel(ActionExp.FOLLOW.getExp(), followFan.getFollowId());
                 return 200;
             }
         }
