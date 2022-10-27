@@ -1,7 +1,8 @@
 package com.yyw.community.mycommunity.cache;
 
-import com.mysql.jdbc.StringUtils;
+
 import com.yyw.community.mycommunity.dto.TagDTO;
+import org.thymeleaf.util.StringUtils;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -83,9 +84,9 @@ public class TagCache {
     }
 
     public static String filterInvalid(String tags) {
-        List<String> splitTag = StringUtils.split(tags, ",", true);
+        String [] splitTag = StringUtils.split(tags, ",");
         List<TagDTO> tagDTOS = getTags();
         List<String> tagList = tagDTOS.stream().flatMap(tag -> tag.getTags().stream()).collect(Collectors.toList());
-        return splitTag.stream().filter(t -> !tagList.contains(t)).collect(Collectors.joining(","));
+        return Arrays.stream(splitTag).filter(t -> !tagList.contains(t)).collect(Collectors.joining(","));
     }
 }

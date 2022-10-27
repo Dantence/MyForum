@@ -43,7 +43,6 @@ public class IndexController {
                         @RequestParam(name = "search", required = false) String search,
                         @RequestParam(name = "tag", required = false) String tag
     ){
-
         PaginationDTO<PostDTO> pagination = postService.list(search, tag, page, size);
         List<String> hotTags = hotTagCache.getHots();
         model.addAttribute("pagination", pagination);

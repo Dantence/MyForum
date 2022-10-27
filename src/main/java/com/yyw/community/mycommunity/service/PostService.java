@@ -1,6 +1,5 @@
 package com.yyw.community.mycommunity.service;
 
-import com.mysql.jdbc.StringUtils;
 import com.yyw.community.mycommunity.dto.PaginationDTO;
 import com.yyw.community.mycommunity.dto.PostDTO;
 import com.yyw.community.mycommunity.dto.PostQueryDTO;
@@ -19,8 +18,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.thymeleaf.util.StringUtils;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -51,8 +52,8 @@ public class PostService {
      * @return
      */
     public PaginationDTO<PostDTO> list(String search, String tag, Integer page, Integer size) {
-        if(!StringUtils.isNullOrEmpty(search)){
-            List<String> keys = StringUtils.split(search, " ", true);
+        if(!StringUtils.isEmpty(search)){
+            String[] keys = StringUtils.split(search, " ");
             search = String.join("|", keys);
         }
         Integer offset = size * (page - 1);
@@ -156,11 +157,11 @@ public class PostService {
     }
 
     public List<PostDTO> selectRelated(PostDTO postDTO) {
-        if (StringUtils.isNullOrEmpty(postDTO.getTag())) {
+        if (StringUtils.isEmpty(postDTO.getTag())) {
             return new ArrayList<>();
         }
-        List<String> tags = StringUtils.split(postDTO.getTag(), ",", true);
-        String regexpTag = tags.stream().collect(Collectors.joining("|"));
+        String[] tags = StringUtils.split(postDTO.getTag(), ",");
+        String regexpTag = String.join("|", tags);
         Post post = new Post();
         post.setId(postDTO.getId());
         post.setTag(regexpTag);

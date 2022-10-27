@@ -1,6 +1,5 @@
 package com.yyw.community.mycommunity.schedule;
 
-import com.mysql.jdbc.StringUtils;
 import com.yyw.community.mycommunity.cache.HotTagCache;
 import com.yyw.community.mycommunity.entity.Post;
 import com.yyw.community.mycommunity.entity.PostExample;
@@ -14,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.scheduling.config.ScheduledTask;
 import org.springframework.stereotype.Component;
+import org.thymeleaf.util.StringUtils;
 
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -38,7 +38,7 @@ public class HotTagTasks {
         Map<String, Long> tagValue = new HashMap<>();
         list = postMapper.selectByExample(new PostExample());
         for (Post post : list) {
-            List<String> tags = StringUtils.split(post.getTag(), ",", true);
+            String [] tags = StringUtils.split(post.getTag(), ",");
             for (String tag : tags) {
                 Long value = tagValue.get(tag);
                 Long delta = 5 + 3 * post.getLikesCount() + 2 * post.getCommentCount();

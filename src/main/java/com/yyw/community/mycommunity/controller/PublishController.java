@@ -1,5 +1,5 @@
 package com.yyw.community.mycommunity.controller;
-import com.mysql.jdbc.StringUtils;
+
 import com.yyw.community.mycommunity.cache.TagCache;
 import com.yyw.community.mycommunity.dto.PostDTO;
 import com.yyw.community.mycommunity.entity.Post;
@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.thymeleaf.util.StringUtils;
 
 import javax.servlet.http.HttpServletRequest;
 /**
@@ -62,23 +63,23 @@ public class PublishController {
             throw new CustomizeException(CustomizeErrorCodeImpl.USER_NOT_LOGIN);
         }
 
-        if(StringUtils.isNullOrEmpty(title)){
+        if(StringUtils.isEmpty(title)){
             //标题为空
             model.addAttribute("error", "标题不能为空!");
             return "publish";
         }
-        if(StringUtils.isNullOrEmpty(content)){
+        if(StringUtils.isEmpty(content)){
             //内容为空
             model.addAttribute("error", "内容不能为空!");
             return "publish";
         }
-        if(StringUtils.isNullOrEmpty(tag)){
+        if(StringUtils.isEmpty(tag)){
             //标签为空
             model.addAttribute("error", "标签不能为空!");
             return "publish";
         }
         String invalid = TagCache.filterInvalid(tag);
-        if(!StringUtils.isNullOrEmpty(invalid)){
+        if(!StringUtils.isEmpty(invalid)){
             //标签不合法
             model.addAttribute("error", "标签不合法!");
             return "publish";

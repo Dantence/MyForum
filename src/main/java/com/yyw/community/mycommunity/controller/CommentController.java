@@ -1,6 +1,6 @@
 package com.yyw.community.mycommunity.controller;
 
-import com.mysql.jdbc.StringUtils;
+
 import com.yyw.community.mycommunity.dto.CommentCreateDTO;
 import com.yyw.community.mycommunity.dto.CommentDTO;
 import com.yyw.community.mycommunity.dto.LikeDTO;
@@ -15,6 +15,7 @@ import com.yyw.community.mycommunity.utils.commonUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.thymeleaf.util.StringUtils;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
@@ -40,7 +41,7 @@ public class CommentController {
         if (user == null || user.getIsValid() == 0) {
             return ResultDTO.errorOf(CustomizeErrorCodeImpl.USER_NOT_LOGIN);
         }
-        if (commentDTO == null || StringUtils.isNullOrEmpty(commentDTO.getContent())) {
+        if (commentDTO == null || StringUtils.isEmpty(commentDTO.getContent())) {
             return ResultDTO.errorOf(CustomizeErrorCodeImpl.CONTENT_EMPTY);
         }
         Comment comment = new Comment();
