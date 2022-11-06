@@ -18,6 +18,51 @@
 </head>
 <body>
 <div th:insert="~{navigation :: nav}"></div>
+<!-- 举报信息模态框-->
+<div class="modal fade"  id="reportModal" aria-labelledby="reportModalLabel" aria-hidden="true" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="close" type="button" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h5 class="modal-title" id="reportModalLabel">举报</h5>
+            </div>
+            <form action="/report" method="post" class="form-horizontal">
+                <div class="modal-body">
+
+                    <div class="form-group">
+                        <label class="control-label col-lg-3">举报理由：</label>
+                        <div class="col-lg-9">
+                            <input type="text" value="" name="reason" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-lg-3">举报对象id：</label>
+                        <div class="col-lg-9">
+                            <input id="reportUserId" type="text" value="" name="reportUserId" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group hidden">
+                        <label class="control-label col-lg-3">举报帖子id：</label>
+                        <div class="col-lg-9">
+                            <input id="reportPostId" type="text" value="" name="reportPostId" class="form-control"></br>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-lg-3">举报人id：</label>
+                        <div class="col-lg-9">
+                            <input id="userId" type="text" value="" name="userId" class="form-control"></br>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-default" type="button" data-dismiss="modal">取消</button>
+                    <button class="btn btn-success" type="submit" >提交</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
 <div class="container-fluid main mine">
     <div class="row">
         <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
@@ -56,6 +101,11 @@
                         </a>
                         <a th:href="@{'/favor/' + ${post.id}}" th:class="${isFavored == 0 ? 'community-menu' : 'community-menu-active'}">
                             <span class="glyphicon glyphicon-heart" aria-hidden="true">收藏</span>
+                        </a>
+                        <a th:if="${session.user != null && session.user.id != post.publisher}"
+                           th:onclick="'javascript:setReportInfo('+${post.user.id}+','+${post.id}+','+${session.user.id}+');'"
+                           data-toggle="modal" class="comment-menu" data-target="#reportModal">
+                            <span class="glyphicon glyphicon-warning-sign" aria-hidden="true">举报</span>
                         </a>
                     </span>
                 </div>

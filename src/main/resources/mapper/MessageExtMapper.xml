@@ -16,7 +16,7 @@
     </resultMap>
 
     <select id="selectMessages" resultMap="BaseResultMap">
-        select * from message where (creator = #{id1} and receiver = #{id2})
+        select * from t_message where (creator = #{id1} and receiver = #{id2})
                                  or (receiver = #{id1} and creator = #{id2})
     </select>
 </mapper>

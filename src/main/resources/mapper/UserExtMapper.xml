@@ -16,6 +16,6 @@
   </resultMap>
 
   <update id="increaseExp" parameterType="com.yyw.community.mycommunity.entity.User">
-    update user set exp = exp + #{exp, jdbcType=INTEGER} where id = #{id}
+    update t_user set exp = exp + #{exp, jdbcType=INTEGER} where id = #{id}
   </update>
 </mapper>

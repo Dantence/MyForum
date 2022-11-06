@@ -14,27 +14,27 @@
     </resultMap>
 
     <update id="increaseViewCount" parameterType="com.yyw.community.mycommunity.entity.Post">
-        update post set view_count = view_count + #{viewCount, jdbcType=BIGINT} where id = #{id}
+        update t_post set view_count = view_count + #{viewCount, jdbcType=BIGINT} where id = #{id}
     </update>
 
     <update id="increaseCommentCount" parameterType="com.yyw.community.mycommunity.entity.Post">
-        update post set comment_count = comment_count + #{commentCount, jdbcType=BIGINT} where id = #{id}
+        update t_post set comment_count = comment_count + #{commentCount, jdbcType=BIGINT} where id = #{id}
     </update>
 
     <update id="increaseLikesCount" parameterType="com.yyw.community.mycommunity.entity.Post">
-        update post set likes_count = likes_count + #{likesCount, jdbcType=BIGINT} where id = #{id}
+        update t_post set likes_count = likes_count + #{likesCount, jdbcType=BIGINT} where id = #{id}
     </update>
 
     <update id="decreaseLikesCount" parameterType="com.yyw.community.mycommunity.entity.Post">
-        update post set likes_count = likes_count - #{likesCount, jdbcType=BIGINT} where id = #{id}
+        update t_post set likes_count = likes_count - #{likesCount, jdbcType=BIGINT} where id = #{id}
     </update>
 
     <select id="selectRelated" parameterType="com.yyw.community.mycommunity.entity.Post" resultMap="BaseResultMap">
-        select * from post where id != #{id} and tag regexp #{tag}
+        select * from t_post where id != #{id} and tag regexp #{tag}
     </select>
 
     <select id="countBySearch" parameterType="com.yyw.community.mycommunity.dto.PostQueryDTO" resultType="java.lang.Integer">
-        select count(*) from post
+        select count(*) from t_post
         <where>
             <if test="search != null and search != '' ">
                 and title regexp #{search}
@@ -46,7 +46,7 @@
 
     </select>
     <select id="selectBySearch" parameterType="com.yyw.community.mycommunity.dto.PostQueryDTO" resultMap="BaseResultMap">
-        select * from post
+        select * from t_post
         <where>
             <if test="search != null and search != ''">
                 and title regexp #{search}

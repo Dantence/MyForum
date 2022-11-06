@@ -216,3 +216,14 @@ function doFollow(e) {
     }
 
 }
+
+/**
+ * 设置举报信息
+ */
+function setReportInfo(reportUserId, reportPostId, userId){
+    $("#reportUserId").val(reportUserId)
+    $("#reportPostId").val(reportPostId)
+    $("#userId").val(userId)
+
+
+}

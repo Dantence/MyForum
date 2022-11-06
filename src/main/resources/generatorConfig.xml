@@ -30,14 +30,18 @@
             <property name="enableSubPackages" value="true" />
         </javaClientGenerator>
 
-        <table tableName="user" domainObjectName="User" ></table>
-        <table tableName="post" domainObjectName="Post"></table>
-        <table tableName="comment" domainObjectName="Comment"></table>
-        <table tableName="notification" domainObjectName="Notification"></table>
-        <table tableName="follow_fan" domainObjectName="FollowFan"></table>
-        <table tableName="message" domainObjectName="Message"></table>
-        <table tableName="likes" domainObjectName="Likes"></table>
-        <table tableName="favor" domainObjectName="Favor"></table>
+        <table tableName="t_user" domainObjectName="User" ></table>
+        <table tableName="t_post" domainObjectName="Post"></table>
+        <table tableName="t_comment" domainObjectName="Comment"></table>
+        <table tableName="t_notification" domainObjectName="Notification"></table>
+        <table tableName="t_follow_fan" domainObjectName="FollowFan"></table>
+        <table tableName="t_message" domainObjectName="Message"></table>
+        <table tableName="t_likes" domainObjectName="Likes"></table>
+        <table tableName="t_favor" domainObjectName="Favor"></table>
+        <table tableName="t_report" domainObjectName="Report"></table>
+        <table tableName="t_hobby_cache" domainObjectName="HobbyCache"></table>
+        <table tableName="t_user_hobby" domainObjectName="UserHobby"></table>
+
 
     </context>
 </generatorConfiguration>
