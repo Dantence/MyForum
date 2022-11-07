@@ -6,7 +6,7 @@
         <result column="follow_id" jdbcType="BIGINT" property="followId" />
         <result column="fan_id" jdbcType="BIGINT" property="fanId" />
     </resultMap>
-    
+
     <resultMap id="FollowFanResultMap" type="com.yyw.community.mycommunity.dto.FollowFanDTO">
         <id column="id" jdbcType="BIGINT" property="id" />
         <result column="name" jdbcType="VARCHAR" property="name" />
@@ -15,12 +15,12 @@
 
     <select id="selectFans" parameterType="java.lang.Long" resultMap="FollowFanResultMap">
         select t_user.id, t_user.name , t_user.avatar_url from t_follow_fan
-        LEFT JOIN t_user on t_user.id = t_follow_fan.follow_id where t_follow_fan.fan_id = #{id};
+                                                                   LEFT JOIN t_user on t_user.id = t_follow_fan.follow_id where t_follow_fan.fan_id = #{id};
     </select>
 
     <select id="selectFollows" parameterType="java.lang.Long" resultMap="FollowFanResultMap">
         select t_user.id, t_user.name , t_user.avatar_url from t_follow_fan
-        LEFT JOIN t_user on t_user.id = t_follow_fan.fan_id where t_follow_fan.follow_id = #{id};
+                                                                   LEFT JOIN t_user on t_user.id = t_follow_fan.fan_id where t_follow_fan.follow_id = #{id};
     </select>
 
 </mapper>
