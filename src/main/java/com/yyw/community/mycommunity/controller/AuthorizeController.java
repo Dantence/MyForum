@@ -2,21 +2,24 @@ package com.yyw.community.mycommunity.controller;
 
 import com.yyw.community.mycommunity.entity.User;
 import com.yyw.community.mycommunity.dto.AccessTokenDTO;
-import com.yyw.community.mycommunity.dto.GitHubUser;
-import com.yyw.community.mycommunity.mapper.UserMapper;
+import com.yyw.community.mycommunity.provider.dto.GitHubUser;
 import com.yyw.community.mycommunity.provider.GitHubProvider;
 import com.yyw.community.mycommunity.service.UserService;
+import com.yyw.community.mycommunity.strategy.LoginUserInfo;
+import com.yyw.community.mycommunity.strategy.UserStrategy;
+import com.yyw.community.mycommunity.strategy.UserStrategyFactory;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.UUID;
+
 /**
  * @author Dantence
  * @date 2022/7/6
@@ -24,6 +27,9 @@ import java.util.UUID;
 @Controller
 @Slf4j
 public class AuthorizeController {
+    @Autowired
+    private UserStrategyFactory userStrategyFactory;
+
     @Autowired
     private GitHubProvider gitHubProvider;
 
@@ -40,38 +46,34 @@ public class AuthorizeController {
     private UserService userService;
 
     /**
-     * github OAuth授权相关接口
+     * OAuth授权相关接口
+     *
      * @param code
      * @param state
      * @param response
      * @return
      */
-    @GetMapping("/callback")
-    public String callback(@RequestParam(name = "code") String code,
+    @GetMapping("/callback/{type}")
+    public String callback(@PathVariable(name = "type") String type,
+                           @RequestParam(name = "code") String code,
                            @RequestParam(name = "state") String state,
-                           HttpServletResponse response){
-        AccessTokenDTO accessTokenDTO = new AccessTokenDTO();
-        accessTokenDTO.setCode(code);
-        accessTokenDTO.setState(state);
-        accessTokenDTO.setClient_id(clientId);
-        accessTokenDTO.setClient_secret(clientSecret);
-        accessTokenDTO.setRedirect_url(redirectUrl);
-        String accessToken = gitHubProvider.getAccessToken(accessTokenDTO);
-        GitHubUser gitHubUser = gitHubProvider.getGitHubUser(accessToken);
-        if(gitHubUser != null && gitHubUser.getId() != null){
+                           HttpServletResponse response) {
+        UserStrategy userStratgety = userStrategyFactory.getStratgety(type);
+        LoginUserInfo loginUserInfo = userStratgety.getUser(code, state);
+        if (loginUserInfo != null && loginUserInfo.getId() != null) {
             User user = new User();
             String token = UUID.randomUUID().toString();
             user.setToken(token);
-            user.setName(gitHubUser.getName());
-            user.setAccountId(String.valueOf(gitHubUser.getId()));
-            user.setBio(gitHubUser.getBio());
-            user.setAvatarUrl(gitHubUser.getAvatarUrl());
+            user.setName(loginUserInfo.getName());
+            user.setAccountId(String.valueOf(loginUserInfo.getId()));
+            user.setBio(loginUserInfo.getBio());
+            user.setAvatarUrl(loginUserInfo.getAvatarUrl());
             user.setIsValid(1);
             userService.handleGithubUser(user);
             response.addCookie(new Cookie("token", token));
             return "redirect:/";
         } else {
-            log.error("callback get github user error, {}", gitHubUser);
+            log.error("callback get github user error, {}", loginUserInfo);
             return "redirect:/";
         }
     }

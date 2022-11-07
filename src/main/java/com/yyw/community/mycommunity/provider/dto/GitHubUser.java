@@ -1,4 +1,4 @@
-package com.yyw.community.mycommunity.dto;
+package com.yyw.community.mycommunity.provider.dto;
 
 import lombok.Data;
 /**

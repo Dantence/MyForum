@@ -42,6 +42,7 @@
         <table tableName="t_hobby_cache" domainObjectName="HobbyCache"></table>
         <table tableName="t_user_hobby" domainObjectName="UserHobby"></table>
         <table tableName="t_ads" domainObjectName="Ads"></table>
+        <table tableName="t_carousel" domainObjectName="Carousel"></table>
 
 
     </context>

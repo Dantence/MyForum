@@ -10,7 +10,7 @@ body{
     background: #eee;
 }
 .card {
-    margin: 120px auto;
+    margin: 120px;
     position: relative;
     width: 350px;
     height: 450px;

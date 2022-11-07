@@ -14,13 +14,13 @@
     </resultMap>
 
     <select id="selectFans" parameterType="java.lang.Long" resultMap="FollowFanResultMap">
-        select user.id, user.name , user.avatar_url from follow_fan
-        LEFT JOIN user on user.id = follow_fan.follow_id where follow_fan.fan_id = #{id};
+        select t_user.id, t_user.name , t_user.avatar_url from t_follow_fan
+        LEFT JOIN t_user on t_user.id = t_follow_fan.follow_id where t_follow_fan.fan_id = #{id};
     </select>
 
     <select id="selectFollows" parameterType="java.lang.Long" resultMap="FollowFanResultMap">
-        select user.id, user.name , user.avatar_url from follow_fan
-        LEFT JOIN user on user.id = follow_fan.fan_id where follow_fan.follow_id = #{id};
+        select t_user.id, t_user.name , t_user.avatar_url from t_follow_fan
+        LEFT JOIN t_user on t_user.id = t_follow_fan.fan_id where t_follow_fan.follow_id = #{id};
     </select>
 
 </mapper>

@@ -3,7 +3,9 @@ package com.yyw.community.mycommunity.controller;
 import com.yyw.community.mycommunity.cache.HotTagCache;
 import com.yyw.community.mycommunity.dto.PaginationDTO;
 import com.yyw.community.mycommunity.dto.PostDTO;
+import com.yyw.community.mycommunity.entity.Carousel;
 import com.yyw.community.mycommunity.mapper.UserMapper;
+import com.yyw.community.mycommunity.service.CarouselService;
 import com.yyw.community.mycommunity.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -28,6 +30,9 @@ public class IndexController {
     @Autowired
     private HotTagCache hotTagCache;
 
+    @Autowired
+    private CarouselService carouselService;
+
     /**
      * 访问首页，获取帖子列表
      * @param model
@@ -45,10 +50,12 @@ public class IndexController {
     ){
         PaginationDTO<PostDTO> pagination = postService.list(search, tag, page, size);
         List<String> hotTags = hotTagCache.getHots();
+        List<Carousel> carousels = carouselService.list();
         model.addAttribute("pagination", pagination);
         model.addAttribute("search", search);
         model.addAttribute("hotTags", hotTags);
         model.addAttribute("tag", tag);
+        model.addAttribute("carousels", carousels);
         return "index";
     }
 }
