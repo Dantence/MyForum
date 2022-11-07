@@ -41,6 +41,7 @@
         <table tableName="t_report" domainObjectName="Report"></table>
         <table tableName="t_hobby_cache" domainObjectName="HobbyCache"></table>
         <table tableName="t_user_hobby" domainObjectName="UserHobby"></table>
+        <table tableName="t_ads" domainObjectName="Ads"></table>
 
 
     </context>
