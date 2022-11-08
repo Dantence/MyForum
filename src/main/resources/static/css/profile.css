@@ -139,3 +139,33 @@ body{
     cursor: pointer;
 }
 
+
+.personalCard {
+    margin-top: 20px;
+    padding-top: 25px;
+    margin-right: 120px;
+    margin-bottom: 30px;
+    position: relative;
+    width: 950px;
+    height: 650px;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 35px 80px rgba(0,0,0,0.15);
+    transition: 0.5s;
+}
+
+.personalInfo {
+    margin: 25px;
+    padding-right: 35px;
+}
+
+.hobby-tags {
+    margin-top: 10px;
+}
+
+.hobby-tags .label-info {
+    white-space: normal;
+    margin: 5px 5px;
+    display: inline-block;
+}
+

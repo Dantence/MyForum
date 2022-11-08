@@ -3,61 +3,238 @@
 <head>
     <link rel="stylesheet" href="/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="/css/bootstrap-theme.css"/>
-    <link rel="stylesheet" href="/css/profile.css"/>
     <link rel="stylesheet" href="/css/forum.css"/>
+    <link rel="stylesheet" href="/css/navigation.css"/>
+    <link rel="stylesheet" href="/css/profile.css"/>
+    <link rel="stylesheet" href="/fonts/ali-font/iconfont.css"/>
     <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
     <script src="/js/bootstrap.js" type="application/javascript"></script>
     <script src="/js/community.js" type="application/javascript"></script>
+    <link href="/css/citySelecter/city-picker.css" rel="stylesheet"/>
+
+    <link href="https://cdn.bootcss.com/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css"
+          rel="stylesheet">
+
+    <script src="https://cdn.bootcss.com/moment.js/2.24.0/moment-with-locales.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
+    <script src="/js/citySelecter/city-picker.data.js"></script>
+    <script src="/js/citySelecter/city-picker.js"></script>
+    <script src="/js/citySelecter/main.js"></script>
+
 </head>
 <body>
 <div th:insert="~{navigation :: nav}"></div>
 
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+            <div class="card">
+                <div class="imgBx">
+                    <img th:src="${profile.user.avatarUrl}" alt="">
+                </div>
+                <div class="content">
+                    <div class="details">
+                        <h2>
+
+                            <span th:text="${profile.user.name}"></span>
+                            <br>
+                            <span style="background: #EEEEEE" th:text="'LV' + ${profile.user.level}"></span>&nbsp;&nbsp;
+                            <span style="font-size: small" th:text="${profile.user.exp} + '/' + ${floorExp}"></span>
+                            <p>
+                                <progress style="font-size: x-small" th:max="${floorExp}"
+                                          th:value="${profile.user.exp}"></progress>
+                            </p>
+                            <span th:text="${profile.user.bio}"></span></h2>
+                        <div class="data">
+                            <h3>
+                                <span th:text="${profile.postCount}"></span><br>
+                                <span>发帖</span>
+                            </h3>
+                            <h3>
+                                <span th:text="${profile.followCount}"></span><br>
+                                <a style="text-decoration: none;"
+                                   th:href="@{'/showfollows/' + ${profile.user.id}}">关注</a></h3>
+                            <h3>
+                                <span id="fanCount" th:text="${profile.fanCount}"></span><br>
+                                <a style="text-decoration: none;" th:href="@{'/showfans/' + ${profile.user.id}}">被关注</a>
+                            </h3>
+                        </div>
+                        <div class="actionBtn" th:if="${profile.user.id != session.user.id}">
+                            <button th:class="${isFollowed == 0 ? 'follow-btn' : 'msg-btn'}" id="follow-btn"
+                                    th:data-follow_id="${session.user.id}" th:data-fan_id="${profile.user.id}"
+                                    onclick="doFollow(this)" th:text="${isFollowed == 0 ? '+关注' : '取消关注'}">
+                            </button>
+                            <a th:href="@{'/message/' + ${profile.user.id}}">
+                                <button class="msg-btn" id="msg-btn">私信</button>
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
 
 
-<div class="card">
-    <div class="imgBx">
-        <img th:src="${profile.user.avatarUrl}" alt="">
-    </div>
-    <div class="content">
-        <div class="details">
-            <h2>
-
-                <span th:text="${profile.user.name}"></span>
-                <br>
-                <span style="background: #EEEEEE" th:text="'LV' + ${profile.user.level}"></span>&nbsp;&nbsp;
-                <span style="font-size: small" th:text="${profile.user.exp} + '/' + ${floorExp}"></span>
-                <p>
-                    <progress style="font-size: small" th:max="${floorExp}" th:value="${profile.user.exp}"></progress>
-                </p>
-                <span th:text="${profile.user.bio}"></span></h2>
-            <div class="data">
-                <h3>
-                    <span th:text="${profile.postCount}"></span><br>
-                    <span>发帖</span>
-                </h3>
-                <h3>
-                    <span th:text="${profile.followCount}"></span><br>
-                    <a style="text-decoration: none;" th:href="@{'/showfollows/' + ${profile.user.id}}">关注</a></h3>
-                <h3>
-                    <span id="fanCount" th:text="${profile.fanCount}"></span><br>
-                    <a style="text-decoration: none;" th:href="@{'/showfans/' + ${profile.user.id}}">被关注</a>
-                </h3>
             </div>
-            <div class="actionBtn" th:if="${profile.user.id != session.user.id}">
-                <button th:class="${isFollowed == 0 ? 'follow-btn' : 'msg-btn'}" id="follow-btn" th:data-follow_id="${session.user.id}" th:data-fan_id="${profile.user.id}"
-                        onclick="doFollow(this)" th:text="${isFollowed == 0 ? '+关注' : '取消关注'}">
-                </button>
-                <a th:href="@{'/message/' + ${profile.user.id}}">
-                    <button class="msg-btn" id="msg-btn">私信</button>
-                </a>
+        </div>
+
+        <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
+            <div class="personalCard">
+                <form class="form-horizontal personalInfo" action="/submitUserInfo" method="post">
+                    <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+
+                        <div class="form-group">
+                            <label for="nickname" class="col-sm-4 control-label">昵称</label>
+
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="nickname" name="nickname" th:value="${profile.userInfo?.nickname}">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="birthday" class="col-sm-4 control-label">生日</label>
+                            <div class="col-sm-8">
+                                <div class="input-group date" id="birthday">
+                                    <input type='text' class="form-control" name="birthday" th:value="${profile.userInfo?.birthday}"/>
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-calendar"></span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group" id="distpicker">
+                            <label class="col-sm-4 control-label">现居地</label>
+                            <div class="col-sm-8">
+                                <input id="city-picker3" class="form-control" type="text" placeholder="请选择省/市/区"
+                                       name="city" data-toggle="city-picker" th:value="${profile.userInfo?.city}">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="school" class="col-sm-4 control-label">毕业/在读院校</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="school" name="school" th:value="${profile.userInfo?.school}">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="major" class="col-sm-4 control-label">所学专业</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="major" name="major" th:value="${profile.userInfo?.major}">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="company" class="col-sm-4 control-label">就职公司/组织</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="company" name="company" th:value="${profile.userInfo?.company}">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                        <div class="form-group">
+                            <label for="blog" class="col-sm-4 control-label">个人网站</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="blog" name="blog" th:value="${profile.userInfo?.blog}">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="sex" class="col-sm-4 control-label">性别</label>
+                            <div class="col-sm-8">
+                                <select class="form-control" name="sex" id="sex">
+                                    <option selected disabled hidden th:text="${profile.userInfo?.sex}"></option>
+                                    <option value="2">保密</option>
+                                    <option value="1">男</option>
+                                    <option value="0">女</option>
+                                </select>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="bio" class="col-sm-4 control-label">个性签名</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="bio" name="bio" th:value="${profile.user.bio}">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="college" class="col-sm-4 control-label">所在学院</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="college" name="college" th:value="${profile.userInfo?.college}">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="classroom" class="col-sm-4 control-label">所在班级</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="classroom" name="classroom" th:value="${profile.userInfo?.classroom}">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="job" class="col-sm-4 control-label">职位名称</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="job" name="job" th:value="${profile.userInfo?.job}">
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="form-group">
+                            <label for="introduction" class="col-sm-2 control-label">自我介绍</label>
+                            <div class="col-sm-10">
+                                <textarea class="form-control" id="introduction" name="introduction" style="height: 110px" th:value="${profile.userInfo?.introduction}"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="hobby" class="col-sm-2 control-label">兴趣爱好</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="hobby" name="hobby" autocomplete="off" th:value="${profile.hobby}">
+                                <div class="hobby-tags">
+                                    <span class="label label-info publish-tag" th:each="hobbyTag : ${hobbies}">
+                                        <span class="glyphicon glyphicon-tags"></span>
+                                        <span th:text="${hobbyTag}" onclick="selectHobby(this)"></span>
+                                    </span>
+                                </div>
+                            </div>
+
+
+
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button type="submit" class="btn btn-success" style="width: 100%">提交</button>
+                            </div>
+                        </div>
+
+
+
+
+
+
+
+                    </div>
+                </form>
+
 
             </div>
+
         </div>
     </div>
 </div>
 
-</div>
+
 <div th:insert="~{footer :: foot}"></div>
 </body>
-
+<script type="text/javascript">
+    $(function () {
+        $('#birthday').datetimepicker({
+            format: 'YYYY-MM-DD',
+            locale: moment.locale('zh-cn')
+        });
+    });
+</script>
 </html>

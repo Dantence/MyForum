@@ -24,8 +24,8 @@ public class UserStrategyFactory {
     @Autowired
     private List<UserStrategy> strategies;
 
-    public UserStrategy getStratgety(String type){
-        for(UserStrategy strategy : strategies){
+    public UserStrategy getStratgety(String type) {
+        for(UserStrategy strategy : strategies) {
             if(StringUtils.equals(strategy.getSupportedType(), type)){
                 return strategy;
             }

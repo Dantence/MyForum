@@ -24,7 +24,8 @@ function comment2target(targetId, type, content) {
                 if (response.code === 2003) {
                     let isAccepted = confirm(response.message);
                     if (isAccepted) {
-                        window.open("https://github.com/login/oauth/authorize?client_id=87df8eadcb6e3f32612f&redirect_url=http://localhost:8080/callback&scope=user&state=1")
+                        $('#loginModal').modal({});
+                        //window.open("https://github.com/login/oauth/authorize?client_id=87df8eadcb6e3f32612f&redirect_url=http://localhost:8080/callback&scope=user&state=1")
                         window.localStorage.setItem("close", "1")
 
                     }
@@ -168,6 +169,22 @@ function selectTag(val) {
 function showSelectTag() {
     $("#select-tag").show()
 }
+
+function selectHobby(val) {
+    let tag = val.innerHTML
+    console.log(tag)
+    let previous = $("#hobby").val()
+    if (previous.indexOf(tag) !== -1) {
+        alert("您已经添加过该标签了哦~")
+    } else {
+        if (previous) {
+            $("#hobby").val(previous + ',' + tag)
+        } else {
+            $("#hobby").val(tag)
+        }
+    }
+}
+
 
 function doFollow(e) {
     let follow_id = e.getAttribute("data-follow_id")

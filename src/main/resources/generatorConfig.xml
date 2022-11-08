@@ -43,7 +43,6 @@
         <table tableName="t_user_hobby" domainObjectName="UserHobby"></table>
         <table tableName="t_ads" domainObjectName="Ads"></table>
         <table tableName="t_carousel" domainObjectName="Carousel"></table>
-
-
+        <table tableName="t_user_info" domainObjectName="UserInfo"></table>
     </context>
 </generatorConfiguration>

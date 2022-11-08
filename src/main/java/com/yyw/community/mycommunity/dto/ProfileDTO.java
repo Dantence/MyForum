@@ -1,7 +1,10 @@
 package com.yyw.community.mycommunity.dto;
 
 import com.yyw.community.mycommunity.entity.User;
+import com.yyw.community.mycommunity.entity.UserInfo;
 import lombok.Data;
+
+import java.util.List;
 
 /**
  * @author Dantence
@@ -16,4 +19,8 @@ public class ProfileDTO {
     private Long fanCount;
     //用户发布的帖子数
     private Long postCount;
+    //用户详细信息
+    private UserInfo userInfo;
+    //用户爱好
+    private String hobby;
 }

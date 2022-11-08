@@ -9,6 +9,7 @@ import com.yyw.community.mycommunity.provider.GiteeProvider;
 import com.yyw.community.mycommunity.provider.dto.GitHubUser;
 import com.yyw.community.mycommunity.provider.dto.GiteeUser;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /**
  * @projectName: MyCommunity
@@ -19,6 +20,7 @@ import org.springframework.beans.factory.annotation.Autowired;
  * @date: 2022/11/7 20:36
  * @version: 1.0
  */
+@Service
 public class GiteeUserStrategy implements UserStrategy {
     @Autowired
     private GiteeProvider giteeProvider;

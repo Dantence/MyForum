@@ -7,6 +7,7 @@ import com.yyw.community.mycommunity.service.MessageService;
 import com.yyw.community.mycommunity.service.NotificationService;
 import com.yyw.community.mycommunity.utils.commonUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
@@ -31,8 +32,17 @@ public class LoginInterceptor implements HandlerInterceptor {
     @Autowired
     private MessageService messageService;
 
+    @Value("${github.redirect.uri}")
+    private String githubRedirectUri;
+
+    @Value("${gitee.redirect.uri}")
+    private String giteeRedirectUri;
+
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+        //设置context级别的属性
+        request.getServletContext().setAttribute("giteeRedirectUri", giteeRedirectUri);
+        request.getServletContext().setAttribute("githubRedirectUri", githubRedirectUri);
         String token = commonUtils.getToken(request);
         if(token != null){
             UserExample userExample = new UserExample();
@@ -47,7 +57,6 @@ public class LoginInterceptor implements HandlerInterceptor {
                 request.getSession().setAttribute("unreadCount", unreadMessageCount + unreadNotificationCount);
             }
         }
-
         return true;
     }
 

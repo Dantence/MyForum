@@ -5,6 +5,8 @@ package com.yyw.community.mycommunity.controller;/**
  */
 
 import com.yyw.community.mycommunity.entity.User;
+import com.yyw.community.mycommunity.exception.CustomizeErrorCodeImpl;
+import com.yyw.community.mycommunity.exception.CustomizeException;
 import com.yyw.community.mycommunity.service.ReportService;
 import com.yyw.community.mycommunity.utils.commonUtils;
 import lombok.extern.slf4j.Slf4j;
@@ -38,6 +40,9 @@ public class ReportController {
                            @RequestParam(name = "reason")String reason,
                            HttpServletRequest request){
         User user = commonUtils.getUserFromSession(request);
+        if(user == null || user.getIsValid() == 0) {
+            throw new CustomizeException(CustomizeErrorCodeImpl.USER_NOT_LOGIN);
+        }
         reportService.doReport(reportUserId, reportPostId, userId, reason);
         return "redirect:/post/" + reportPostId.toString();
     }

@@ -1,6 +1,7 @@
 package com.yyw.community.mycommunity.provider;
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.yyw.community.mycommunity.dto.AccessTokenDTO;
 import com.yyw.community.mycommunity.provider.dto.GitHubUser;
 import com.yyw.community.mycommunity.provider.dto.GiteeUser;
@@ -24,8 +25,8 @@ public class GiteeProvider {
     @Value("${gitee.client.secret}")
     private String clientSecret;
 
-    @Value("${gitee.redirect.url}")
-    private String redirectUrl;
+    @Value("${gitee.redirect.uri}")
+    private String redirectUri;
     /**
      * 主要是根据code字段来获取github的accessToken
      * @param accessTokenDTO
@@ -44,15 +45,14 @@ public class GiteeProvider {
 
         RequestBody body = RequestBody.create(JSONTYPE, JSON.toJSONString(accessTokenDTO));
         String url = "https://gitee.com/oauth/token?grant_type=authorization_code&code=%s&client_id=%s&redirect_uri=%s&client_secret=%s";
-        url = String.format(url, accessTokenDTO.getCode(), clientId, redirectUrl, clientSecret);
+        url = String.format(url, accessTokenDTO.getCode(), clientId, redirectUri, clientSecret);
         Request request = new Request.Builder()
                 .url(url)
                 .post(body)
                 .build();
         try (Response response = client.newCall(request).execute()) {
             String string = response.body().string();
-            System.out.println(string + "!!!!!!!!!!!!!!!!!!!!!!!!");
-            return string.split("&")[0].split("=")[1];
+            return JSON.parseObject(string).get("access_token").toString();
         } catch (IOException e){
             e.printStackTrace();
         }

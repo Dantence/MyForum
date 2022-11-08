@@ -27,7 +27,9 @@ public class UserService {
 
     public void handleGithubUser(User user) {
         UserExample userExample = new UserExample();
-        userExample.createCriteria().andAccountIdEqualTo(user.getAccountId());
+        userExample.createCriteria()
+                .andAccountIdEqualTo(user.getAccountId())
+                .andTypeEqualTo(user.getType());
         List< User> findedUsers = userMapper.selectByExample(userExample);
         if(findedUsers.size() != 0){
             User findedUser = findedUsers.get(0);

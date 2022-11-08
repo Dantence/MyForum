@@ -22,8 +22,8 @@ public class GitHubProvider {
     @Value("${github.client.secret}")
     private String clientSecret;
 
-    @Value("${github.redirect.url}")
-    private String redirectUrl;
+    @Value("${github.redirect.uri}")
+    private String redirectUri;
 
     /**
      * 主要是根据code字段来获取github的accessToken
@@ -33,7 +33,7 @@ public class GitHubProvider {
     public String getAccessToken(AccessTokenDTO accessTokenDTO){
         accessTokenDTO.setClient_id(clientId);
         accessTokenDTO.setClient_secret(clientSecret);
-        accessTokenDTO.setRedirect_url(redirectUrl);
+        accessTokenDTO.setRedirect_uri(redirectUri);
         MediaType JSONTYPE = MediaType.get("application/json; charset=utf-8");
 
         OkHttpClient client = new OkHttpClient.Builder()

@@ -4,6 +4,7 @@
   <resultMap id="BaseResultMap" type="com.yyw.community.mycommunity.entity.User">
     <id column="id" jdbcType="BIGINT" property="id" />
     <result column="account_id" jdbcType="VARCHAR" property="accountId" />
+    <result column="type" jdbcType="VARCHAR" property="type" />
     <result column="name" jdbcType="VARCHAR" property="name" />
     <result column="bio" jdbcType="VARCHAR" property="bio" />
     <result column="token" jdbcType="CHAR" property="token" />

@@ -51,8 +51,8 @@
                         <div class="main-title">
                             <a th:href="@{'/post/' + ${post.id}}" th:text="${post.title}"  ></a>
                         </div>
-                        <div class="ans-con" >
-                            图片路径测试图片路径测试图片路径测试图片路径测试图片路径测试图片路径测试图片路径测试图片路径测试图片路径测试图片路径测试图片路径测试图片路径测试图片路径测试图片路径测试图片路径测试图片路径测试图片路径测试图片路径测试图片路径测试图片路径测试
+                        <div class="ans-con" th:text="${post.content}">
+
                         </div>
                     </div>
                     <div class="title-time">

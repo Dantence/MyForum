@@ -33,15 +33,6 @@ public class AuthorizeController {
     @Autowired
     private GitHubProvider gitHubProvider;
 
-    @Value("${github.client.id}")
-    private String clientId;
-
-    @Value("${github.client.secret}")
-    private String clientSecret;
-
-    @Value("${github.redirect.url}")
-    private String redirectUrl;
-
     @Autowired
     private UserService userService;
 
@@ -56,7 +47,7 @@ public class AuthorizeController {
     @GetMapping("/callback/{type}")
     public String callback(@PathVariable(name = "type") String type,
                            @RequestParam(name = "code") String code,
-                           @RequestParam(name = "state") String state,
+                           @RequestParam(name = "state", required = false) String state,
                            HttpServletResponse response) {
         UserStrategy userStratgety = userStrategyFactory.getStratgety(type);
         LoginUserInfo loginUserInfo = userStratgety.getUser(code, state);
@@ -68,6 +59,7 @@ public class AuthorizeController {
             user.setAccountId(String.valueOf(loginUserInfo.getId()));
             user.setBio(loginUserInfo.getBio());
             user.setAvatarUrl(loginUserInfo.getAvatarUrl());
+            user.setType(type);
             user.setIsValid(1);
             userService.handleGithubUser(user);
             response.addCookie(new Cookie("token", token));

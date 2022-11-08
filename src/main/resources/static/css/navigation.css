@@ -2,7 +2,7 @@
 *{
     padding:0px;
     margin:0px;
-    border:0px;
+    /*border:0px;*/
 }
 a{
     text-decoration:none;
@@ -81,7 +81,7 @@ a{
 
     border-top-right-radius: .25rem;
     border-bottom-right-radius: .25rem;
-
+    border: none;
     background-color: #fff;
 }
 .nav-search form button:hover{
