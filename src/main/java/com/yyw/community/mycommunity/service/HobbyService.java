@@ -4,12 +4,11 @@ package com.yyw.community.mycommunity.service;/**
  * @date 2022/11/9
  */
 
-import com.yyw.community.mycommunity.entity.HobbyCache;
-import com.yyw.community.mycommunity.entity.HobbyCacheExample;
-import com.yyw.community.mycommunity.entity.UserHobby;
-import com.yyw.community.mycommunity.entity.UserHobbyExample;
+import com.yyw.community.mycommunity.entity.*;
 import com.yyw.community.mycommunity.mapper.HobbyCacheMapper;
+import com.yyw.community.mycommunity.mapper.UserHobbyExtMapper;
 import com.yyw.community.mycommunity.mapper.UserHobbyMapper;
+import com.yyw.community.mycommunity.mapper.UserMapper;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -33,6 +32,12 @@ public class HobbyService {
 
     @Autowired
     private UserHobbyMapper userHobbyMapper;
+
+    @Autowired
+    private UserMapper userMapper;
+
+    @Autowired
+    private UserHobbyExtMapper userHobbyExtMapper;
 
     public List<String> getHobbyNames() {
         return hobbyCacheMapper.selectByExample(null)
@@ -79,4 +84,9 @@ public class HobbyService {
     public int insertUserHobby(UserHobby userHobby){
         return userHobbyMapper.insert(userHobby);
     }
+
+    public List<User> getInterestedUsers(Long userId){
+        return userHobbyExtMapper.selectSameHobbyUser(userId);
+    }
+
 }

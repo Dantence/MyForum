@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yyw.community.mycommunity.mapper.UserHobbyExtMapper">
+    <resultMap id="BaseResultMap" type="com.yyw.community.mycommunity.entity.User">
+        <id column="id" jdbcType="BIGINT" property="id" />
+        <result column="account_id" jdbcType="VARCHAR" property="accountId" />
+        <result column="type" jdbcType="VARCHAR" property="type" />
+        <result column="name" jdbcType="VARCHAR" property="name" />
+        <result column="bio" jdbcType="VARCHAR" property="bio" />
+        <result column="token" jdbcType="CHAR" property="token" />
+        <result column="avatar_url" jdbcType="VARCHAR" property="avatarUrl" />
+        <result column="exp" jdbcType="INTEGER" property="exp" />
+        <result column="level" jdbcType="INTEGER" property="level" />
+        <result column="gmt_create" jdbcType="BIGINT" property="gmtCreate" />
+        <result column="gmt_modified" jdbcType="BIGINT" property="gmtModified" />
+        <result column="is_valid" jdbcType="INTEGER" property="isValid" />
+    </resultMap>
+    <select id="selectSameHobbyUser" parameterType="long" resultMap="BaseResultMap">
+        select id, account_id, type, name, bio, token, avatar_url, exp, level, gmt_create, gmt_modified, is_valid from
+            (select DISTINCT t2.user_id from t_user_hobby as t1 INNER JOIN t_user_hobby as t2 on t1.hobby_id = t2.hobby_id
+             where t1.user_id != t2.user_id and t1.user_id = #{userId, jdbcType=BIGINT} ) as ids INNER JOIN t_user on ids.user_id = t_user.id where is_valid = 1;
+    </select>
+</mapper>

@@ -38,7 +38,7 @@
                         </a>
                     </div>
                     <div class="msg-name">
-                        <div class="name-level">
+                        <div class="name-level" th:classappend="'level' + ${post.user.level}">
                             <span  th:text="'Lv' + ${post.user.level}"></span>
                         </div>
                         <div class="name-main">
@@ -153,6 +153,32 @@
                 </div>
                 <div class="clear"></div>
             </div>
+
+            <div th:if="${session.user != null}" class="right-item">
+                <div class="item-title">
+                    猜您感兴趣的用户
+                </div>
+                <div class="item-main">
+                    <div class="idx-ans-msg-below" th:each="interestedUser : ${interestedUsers}">
+                        <!-- 头像 -->
+                        <div class="idx-msg-pic">
+                            <a th:href="@{'/profile/' + ${interestedUser.id}}">
+                                <img class="" th:src="${interestedUser.avatarUrl}" alt="头像">
+                            </a>
+                        </div>
+                        <div class="msg-name">
+                            <div class="name-level" th:classappend="'level' + ${interestedUser.level}">
+                                <span  th:text="'Lv' + ${interestedUser.level}"></span>
+                            </div>
+                            <div class="name-main">
+                                <span th:text="${interestedUser.name}"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="clear"></div>
+            </div>
+
         </div>
         <div class="clear"></div>
     </div>

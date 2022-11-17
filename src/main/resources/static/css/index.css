@@ -53,6 +53,12 @@ a:focus, a:hover{
 
     /* background-color: aquamarine; */
 }
+.idx-ans-msg-below{
+    width: 20%;
+    height: 100%;
+    float: left;
+    margin: 5px 15px;
+}
 .idx-msg-pic{
 
     height: 65px;
@@ -76,9 +82,33 @@ a:focus, a:hover{
     display: inline-block;
     padding: 1px 2px;
     margin-bottom: 1px;
-    background-color: rgba(204, 56, 57,.5);
     font-size: xx-small;
 }
+
+.level1{
+    background-color: #EEEEEE;
+}
+
+.level2{
+    background-color: green;
+}
+
+.level3{
+    background-color: deepskyblue;
+}
+
+.level4{
+    background-color: purple;
+}
+
+.level5{
+    background-color: yellow;
+}
+
+.level6{
+    background-color: orange;
+}
+
 .name-main{
     display: inline-block;
 }

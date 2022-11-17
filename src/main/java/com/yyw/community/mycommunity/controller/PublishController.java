@@ -84,7 +84,18 @@ public class PublishController {
             model.addAttribute("error", "标签不合法!");
             return "publish";
         }
-
+        if(title.length() > 100){
+            model.addAttribute("error", "输入标题太长!");
+            return "publish";
+        }
+        if(content.length() > 65536){
+            model.addAttribute("error", "输入内容太多!");
+            return "publish";
+        }
+        if(tag.length() > 1024){
+            model.addAttribute("error", "输入标签太多!");
+            return "publish";
+        }
         Post post = new Post();
         post.setTitle(title);
         post.setContent(content);
