@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.yyw.community.mycommunity.dto.ResultDTO;
 import com.yyw.community.mycommunity.exception.CustomizeErrorCodeImpl;
 import com.yyw.community.mycommunity.exception.CustomizeException;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -19,6 +20,7 @@ import java.io.PrintWriter;
  * @date 2022/7/11 通用异常处理，如果错误信息是json格式，则返回json，否则进行页面跳转
  *       2022/7/12 增加对json格式的回写
  */
+@Slf4j
 @ControllerAdvice
 public class CustomizeExceptionHandler {
     @ExceptionHandler(Exception.class)
@@ -49,6 +51,7 @@ public class CustomizeExceptionHandler {
                 model.addAttribute("message", CustomizeErrorCodeImpl.SYSTEM_ERROR.getMessage());
             }
         }
+        log.error("-------------error---------------", e);
         return new ModelAndView("error");
     }
 
